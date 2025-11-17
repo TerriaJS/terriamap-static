@@ -1,0 +1,11 @@
+# Static TerriaMap
+
+This is a pre-built version of [TerriaMap](https://github.com/TerriaJS/terriamap).
+
+To run this map, you need to have [Node.js](https://nodejs.org/) installed, then run the following command:
+
+```bash
+npx serve -p 3001
+```
+
+Then go to [http://localhost:3001](http://localhost:3001) to view the map.
