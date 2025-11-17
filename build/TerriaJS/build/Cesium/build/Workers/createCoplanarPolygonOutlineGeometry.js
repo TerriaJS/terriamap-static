@@ -1,7 +1,7 @@
 /**
  * @license
  * Cesium - https://github.com/CesiumGS/cesium
- * Version 1.115
+ * Version 1.134.0
  *
  * Copyright 2011-2022 Cesium Contributors
  *
@@ -25,65 +25,61 @@
 
 import {
   CoplanarPolygonGeometryLibrary_default
-} from "./chunk-7ZFGPDJA.js";
-import "./chunk-A5DWLWCY.js";
+} from "./chunk-S2P6LCIB.js";
+import "./chunk-3MSNTCHW.js";
 import {
   PolygonGeometryLibrary_default
-} from "./chunk-I46ZRR5W.js";
-import "./chunk-EHWHNOEX.js";
+} from "./chunk-4PFQUFKJ.js";
+import "./chunk-E5XCZVIY.js";
 import {
   GeometryInstance_default
-} from "./chunk-BIKA3NRA.js";
+} from "./chunk-FFCKCQPK.js";
 import {
   GeometryPipeline_default
-} from "./chunk-EG6PTBY2.js";
-import "./chunk-Z3TIFFGF.js";
-import "./chunk-ZT7KWISZ.js";
-import "./chunk-FNIRWHJB.js";
-import "./chunk-G43QFN4Q.js";
-import "./chunk-MDWEGWPA.js";
+} from "./chunk-TUZQG4RW.js";
+import "./chunk-GKCZ2G36.js";
+import "./chunk-HJ7IZBEI.js";
+import "./chunk-4VJYMLR6.js";
+import "./chunk-UY2HVPDL.js";
+import "./chunk-TFG63RWC.js";
 import {
   arrayRemoveDuplicates_default
-} from "./chunk-FZRIVR7Y.js";
-import "./chunk-SH5USDPI.js";
-import "./chunk-2FRVPMCS.js";
-import "./chunk-Y5UQJLYE.js";
+} from "./chunk-3OPG2FGI.js";
+import "./chunk-75B34CC6.js";
+import "./chunk-2T4WAVWX.js";
+import "./chunk-BUBVUXDO.js";
 import {
   IndexDatatype_default
-} from "./chunk-LPR3YNP2.js";
+} from "./chunk-7PLX65MV.js";
 import {
   GeometryAttributes_default
-} from "./chunk-4H7PY4U5.js";
+} from "./chunk-S4NZVXU6.js";
 import {
   GeometryAttribute_default,
   Geometry_default,
   PrimitiveType_default
-} from "./chunk-7TC63SJW.js";
+} from "./chunk-ARYRHDEB.js";
 import {
   BoundingSphere_default
-} from "./chunk-FJKNFAKQ.js";
-import "./chunk-TTUZP4BO.js";
-import "./chunk-BG4UCVXN.js";
-import "./chunk-YJEBABKH.js";
+} from "./chunk-BU4CGMHO.js";
+import "./chunk-TG7N7TPY.js";
 import {
   ComponentDatatype_default
-} from "./chunk-PPH7OFP3.js";
+} from "./chunk-EHFMZFVC.js";
 import {
   Cartesian3_default,
-  Ellipsoid_default
-} from "./chunk-OGXZVPPM.js";
-import "./chunk-5QULIR53.js";
-import "./chunk-SOWMRMWA.js";
-import "./chunk-STW2DGFI.js";
-import {
-  defaultValue_default
-} from "./chunk-BBWDMCVU.js";
+  Ellipsoid_default,
+  Frozen_default
+} from "./chunk-CF72FAKC.js";
+import "./chunk-NP46ZIBY.js";
+import "./chunk-3G5XEUPY.js";
+import "./chunk-PXDMWXO5.js";
 import {
   Check_default
-} from "./chunk-XGI5BXZY.js";
+} from "./chunk-JJZWDROM.js";
 import {
   defined_default
-} from "./chunk-YWTJ2B4B.js";
+} from "./chunk-5GHCWGC4.js";
 
 // packages/engine/Source/Core/CoplanarPolygonOutlineGeometry.js
 function createGeometryFromPositions(positions) {
@@ -114,7 +110,7 @@ function createGeometryFromPositions(positions) {
   });
 }
 function CoplanarPolygonOutlineGeometry(options) {
-  options = defaultValue_default(options, defaultValue_default.EMPTY_OBJECT);
+  options = options ?? Frozen_default.EMPTY_OBJECT;
   const polygonHierarchy = options.polygonHierarchy;
   Check_default.defined("options.polygonHierarchy", polygonHierarchy);
   this._polygonHierarchy = polygonHierarchy;
@@ -125,7 +121,7 @@ function CoplanarPolygonOutlineGeometry(options) {
   ) + 1;
 }
 CoplanarPolygonOutlineGeometry.fromPositions = function(options) {
-  options = defaultValue_default(options, defaultValue_default.EMPTY_OBJECT);
+  options = options ?? Frozen_default.EMPTY_OBJECT;
   Check_default.defined("options.positions", options.positions);
   const newOptions = {
     polygonHierarchy: {
@@ -137,7 +133,7 @@ CoplanarPolygonOutlineGeometry.fromPositions = function(options) {
 CoplanarPolygonOutlineGeometry.pack = function(value, array, startingIndex) {
   Check_default.typeOf.object("value", value);
   Check_default.defined("array", array);
-  startingIndex = defaultValue_default(startingIndex, 0);
+  startingIndex = startingIndex ?? 0;
   startingIndex = PolygonGeometryLibrary_default.packPolygonHierarchy(
     value._polygonHierarchy,
     array,
@@ -152,7 +148,7 @@ var scratchOptions = {
 };
 CoplanarPolygonOutlineGeometry.unpack = function(array, startingIndex, result) {
   Check_default.defined("array", array);
-  startingIndex = defaultValue_default(startingIndex, 0);
+  startingIndex = startingIndex ?? 0;
   const polygonHierarchy = PolygonGeometryLibrary_default.unpackPolygonHierarchy(
     array,
     startingIndex,

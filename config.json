@@ -2,7 +2,6 @@
   /* Names of init files (in wwwroot/init), without the .json extension, to load by default */
   "initializationUrls": ["foss4g"],
   "parameters": {
-    "cesiumIonAccessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlM2MxODAwNC1mZmY3LTRkNzQtYmE4YS1hMGQzODhhNjQ3OTkiLCJpZCI6MjUyMzkzLCJpYXQiOjE3MzA1NDYxODl9.6ofnHtsKouZs8RU45MbtxuWLI38WcbIDK3sJHKDhwR0",
     "googleUrlShortenerKey": null,
     "googleAnalyticsKey": null,
     "googleAnalyticsOptions": null,
@@ -13,6 +12,7 @@
       "text": "Disclaimer: This map must not be used for navigation or precise spatial analysis",
       "url": ""
     },
+    "useCesiumIonBingImagery": true,
     /*
         // Text that will be added to any pages printed from your site.
         printDisclaimer:{

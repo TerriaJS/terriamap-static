@@ -1,19 +1,42 @@
 {
   "homeCamera": {
-    "north": -35,
-    "east": 152,
-    "south": -47,
-    "west": 140
+    "up": {
+      "x": -0.9370920194681277,
+      "y": 0.2425395452589116,
+      "z": -0.2510639680136253
+    },
+    "east": 174.7754395598517,
+    "west": 174.7456009736115,
+    "north": -36.84575586378081,
+    "south": -36.85939367827398,
+    "position": {
+      "x": -5088182.34253078,
+      "y": 465777.5585744629,
+      "z": -3806470.487216203
+    },
+    "direction": {
+      "x": -0.1502298205962084,
+      "y": 0.3690045159201282,
+      "z": 0.9172059028561598
+    }
   },
+  "workbench": ["osm-buildings"],
   "catalog": [
     {
       "name": "FOSS4G Group",
       "type": "group",
-      "members": []
+      "members": [
+        {
+          "type": "3d-tiles",
+          "ionAssetId": 96188,
+          "name": "Cesium OSM Buildings",
+          "id": "osm-buildings"
+        }
+      ]
     }
   ],
   "viewerMode": "3dSmooth",
   "baseMaps": {
-    "previewBaseMapId": "basemap-positron"
+    "previewBaseMapId": "basemap-bing-aerial"
   }
 }

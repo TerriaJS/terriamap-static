@@ -1,7 +1,7 @@
 /**
  * @license
  * Cesium - https://github.com/CesiumGS/cesium
- * Version 1.115
+ * Version 1.134.0
  *
  * Copyright 2011-2022 Cesium Contributors
  *
@@ -25,72 +25,68 @@
 
 import {
   PolygonGeometryLibrary_default
-} from "./chunk-I46ZRR5W.js";
+} from "./chunk-4PFQUFKJ.js";
 import {
   ArcType_default
-} from "./chunk-EHWHNOEX.js";
+} from "./chunk-E5XCZVIY.js";
 import {
   GeometryInstance_default
-} from "./chunk-BIKA3NRA.js";
+} from "./chunk-FFCKCQPK.js";
 import {
   GeometryPipeline_default
-} from "./chunk-EG6PTBY2.js";
-import "./chunk-Z3TIFFGF.js";
-import "./chunk-ZT7KWISZ.js";
+} from "./chunk-TUZQG4RW.js";
+import "./chunk-GKCZ2G36.js";
+import "./chunk-HJ7IZBEI.js";
 import {
   GeometryOffsetAttribute_default
-} from "./chunk-F3YA3Y2Z.js";
+} from "./chunk-AR2FUSG6.js";
 import {
   EllipsoidTangentPlane_default
-} from "./chunk-FNIRWHJB.js";
-import "./chunk-G43QFN4Q.js";
+} from "./chunk-4VJYMLR6.js";
+import "./chunk-UY2HVPDL.js";
 import {
   PolygonPipeline_default,
   WindingOrder_default
-} from "./chunk-MDWEGWPA.js";
-import "./chunk-FZRIVR7Y.js";
-import "./chunk-SH5USDPI.js";
-import "./chunk-2FRVPMCS.js";
-import "./chunk-Y5UQJLYE.js";
+} from "./chunk-TFG63RWC.js";
+import "./chunk-3OPG2FGI.js";
+import "./chunk-75B34CC6.js";
+import "./chunk-2T4WAVWX.js";
+import "./chunk-BUBVUXDO.js";
 import {
   IndexDatatype_default
-} from "./chunk-LPR3YNP2.js";
+} from "./chunk-7PLX65MV.js";
 import {
   GeometryAttributes_default
-} from "./chunk-4H7PY4U5.js";
+} from "./chunk-S4NZVXU6.js";
 import {
   GeometryAttribute_default,
   Geometry_default,
   PrimitiveType_default
-} from "./chunk-7TC63SJW.js";
+} from "./chunk-ARYRHDEB.js";
 import {
   BoundingSphere_default
-} from "./chunk-FJKNFAKQ.js";
-import "./chunk-TTUZP4BO.js";
-import "./chunk-BG4UCVXN.js";
-import "./chunk-YJEBABKH.js";
+} from "./chunk-BU4CGMHO.js";
+import "./chunk-TG7N7TPY.js";
 import {
   ComponentDatatype_default
-} from "./chunk-PPH7OFP3.js";
+} from "./chunk-EHFMZFVC.js";
 import {
   Cartesian3_default,
-  Ellipsoid_default
-} from "./chunk-OGXZVPPM.js";
+  Ellipsoid_default,
+  Frozen_default
+} from "./chunk-CF72FAKC.js";
 import {
   Math_default
-} from "./chunk-5QULIR53.js";
-import "./chunk-SOWMRMWA.js";
-import "./chunk-STW2DGFI.js";
-import {
-  defaultValue_default
-} from "./chunk-BBWDMCVU.js";
+} from "./chunk-NP46ZIBY.js";
+import "./chunk-3G5XEUPY.js";
+import "./chunk-PXDMWXO5.js";
 import {
   Check_default,
   DeveloperError_default
-} from "./chunk-XGI5BXZY.js";
+} from "./chunk-JJZWDROM.js";
 import {
   defined_default
-} from "./chunk-YWTJ2B4B.js";
+} from "./chunk-5GHCWGC4.js";
 
 // packages/engine/Source/Core/PolygonOutlineGeometry.js
 var createGeometryFromPositionsPositions = [];
@@ -101,9 +97,7 @@ function createGeometryFromPositions(ellipsoid, positions, minDistance, perPosit
     positions,
     createGeometryFromPositionsPositions
   );
-  const originalWindingOrder = PolygonPipeline_default.computeWindingOrder2D(
-    positions2D
-  );
+  const originalWindingOrder = PolygonPipeline_default.computeWindingOrder2D(positions2D);
   if (originalWindingOrder === WindingOrder_default.CLOCKWISE) {
     positions2D.reverse();
     positions = positions.slice().reverse();
@@ -199,9 +193,7 @@ function createGeometryFromPositionsExtruded(ellipsoid, positions, minDistance, 
     positions,
     createGeometryFromPositionsPositions
   );
-  const originalWindingOrder = PolygonPipeline_default.computeWindingOrder2D(
-    positions2D
-  );
+  const originalWindingOrder = PolygonPipeline_default.computeWindingOrder2D(positions2D);
   if (originalWindingOrder === WindingOrder_default.CLOCKWISE) {
     positions2D.reverse();
     positions = positions.slice().reverse();
@@ -317,16 +309,13 @@ function PolygonOutlineGeometry(options) {
     );
   }
   const polygonHierarchy = options.polygonHierarchy;
-  const ellipsoid = defaultValue_default(options.ellipsoid, Ellipsoid_default.WGS84);
-  const granularity = defaultValue_default(
-    options.granularity,
-    Math_default.RADIANS_PER_DEGREE
-  );
-  const perPositionHeight = defaultValue_default(options.perPositionHeight, false);
+  const ellipsoid = options.ellipsoid ?? Ellipsoid_default.default;
+  const granularity = options.granularity ?? Math_default.RADIANS_PER_DEGREE;
+  const perPositionHeight = options.perPositionHeight ?? false;
   const perPositionHeightExtrude = perPositionHeight && defined_default(options.extrudedHeight);
-  const arcType = defaultValue_default(options.arcType, ArcType_default.GEODESIC);
-  let height = defaultValue_default(options.height, 0);
-  let extrudedHeight = defaultValue_default(options.extrudedHeight, height);
+  const arcType = options.arcType ?? ArcType_default.GEODESIC;
+  let height = options.height ?? 0;
+  let extrudedHeight = options.extrudedHeight ?? height;
   if (!perPositionHeightExtrude) {
     const h = Math.max(height, extrudedHeight);
     extrudedHeight = Math.min(height, extrudedHeight);
@@ -350,7 +339,7 @@ function PolygonOutlineGeometry(options) {
 PolygonOutlineGeometry.pack = function(value, array, startingIndex) {
   Check_default.typeOf.object("value", value);
   Check_default.defined("array", array);
-  startingIndex = defaultValue_default(startingIndex, 0);
+  startingIndex = startingIndex ?? 0;
   startingIndex = PolygonGeometryLibrary_default.packPolygonHierarchy(
     value._polygonHierarchy,
     array,
@@ -365,7 +354,7 @@ PolygonOutlineGeometry.pack = function(value, array, startingIndex) {
   array[startingIndex++] = value._perPositionHeightExtrude ? 1 : 0;
   array[startingIndex++] = value._perPositionHeight ? 1 : 0;
   array[startingIndex++] = value._arcType;
-  array[startingIndex++] = defaultValue_default(value._offsetAttribute, -1);
+  array[startingIndex++] = value._offsetAttribute ?? -1;
   array[startingIndex] = value.packedLength;
   return array;
 };
@@ -375,7 +364,7 @@ var dummyOptions = {
 };
 PolygonOutlineGeometry.unpack = function(array, startingIndex, result) {
   Check_default.defined("array", array);
-  startingIndex = defaultValue_default(startingIndex, 0);
+  startingIndex = startingIndex ?? 0;
   const polygonHierarchy = PolygonGeometryLibrary_default.unpackPolygonHierarchy(
     array,
     startingIndex,
@@ -409,7 +398,7 @@ PolygonOutlineGeometry.unpack = function(array, startingIndex, result) {
   return result;
 };
 PolygonOutlineGeometry.fromPositions = function(options) {
-  options = defaultValue_default(options, defaultValue_default.EMPTY_OBJECT);
+  options = options ?? Frozen_default.EMPTY_OBJECT;
   Check_default.defined("options.positions", options.positions);
   const newOptions = {
     polygonHierarchy: {
@@ -475,13 +464,11 @@ PolygonOutlineGeometry.createGeometry = function(polygonGeometry) {
           offsetValue = polygonGeometry._offsetAttribute === GeometryOffsetAttribute_default.NONE ? 0 : 1;
           offsetAttribute = offsetAttribute.fill(offsetValue);
         }
-        geometryInstance.geometry.attributes.applyOffset = new GeometryAttribute_default(
-          {
-            componentDatatype: ComponentDatatype_default.UNSIGNED_BYTE,
-            componentsPerAttribute: 1,
-            values: offsetAttribute
-          }
-        );
+        geometryInstance.geometry.attributes.applyOffset = new GeometryAttribute_default({
+          componentDatatype: ComponentDatatype_default.UNSIGNED_BYTE,
+          componentsPerAttribute: 1,
+          values: offsetAttribute
+        });
       }
       geometries.push(geometryInstance);
     }
@@ -504,13 +491,11 @@ PolygonOutlineGeometry.createGeometry = function(polygonGeometry) {
         const length = geometryInstance.geometry.attributes.position.values.length;
         offsetValue = polygonGeometry._offsetAttribute === GeometryOffsetAttribute_default.NONE ? 0 : 1;
         const applyOffset = new Uint8Array(length / 3).fill(offsetValue);
-        geometryInstance.geometry.attributes.applyOffset = new GeometryAttribute_default(
-          {
-            componentDatatype: ComponentDatatype_default.UNSIGNED_BYTE,
-            componentsPerAttribute: 1,
-            values: applyOffset
-          }
-        );
+        geometryInstance.geometry.attributes.applyOffset = new GeometryAttribute_default({
+          componentDatatype: ComponentDatatype_default.UNSIGNED_BYTE,
+          componentsPerAttribute: 1,
+          values: applyOffset
+        });
       }
       geometries.push(geometryInstance);
     }

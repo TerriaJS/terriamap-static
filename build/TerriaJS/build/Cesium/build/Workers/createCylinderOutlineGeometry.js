@@ -1,7 +1,7 @@
 /**
  * @license
  * Cesium - https://github.com/CesiumGS/cesium
- * Version 1.115
+ * Version 1.134.0
  *
  * Copyright 2011-2022 Cesium Contributors
  *
@@ -25,58 +25,54 @@
 
 import {
   CylinderGeometryLibrary_default
-} from "./chunk-34FXV7D7.js";
+} from "./chunk-MXYW4BQ3.js";
 import {
   GeometryOffsetAttribute_default
-} from "./chunk-F3YA3Y2Z.js";
+} from "./chunk-AR2FUSG6.js";
 import {
   IndexDatatype_default
-} from "./chunk-LPR3YNP2.js";
+} from "./chunk-7PLX65MV.js";
 import {
   GeometryAttributes_default
-} from "./chunk-4H7PY4U5.js";
+} from "./chunk-S4NZVXU6.js";
 import {
   GeometryAttribute_default,
   Geometry_default,
   PrimitiveType_default
-} from "./chunk-7TC63SJW.js";
+} from "./chunk-ARYRHDEB.js";
 import {
   BoundingSphere_default
-} from "./chunk-FJKNFAKQ.js";
-import "./chunk-TTUZP4BO.js";
-import "./chunk-BG4UCVXN.js";
-import "./chunk-YJEBABKH.js";
+} from "./chunk-BU4CGMHO.js";
+import "./chunk-TG7N7TPY.js";
 import {
   ComponentDatatype_default
-} from "./chunk-PPH7OFP3.js";
+} from "./chunk-EHFMZFVC.js";
 import {
   Cartesian2_default,
-  Cartesian3_default
-} from "./chunk-OGXZVPPM.js";
-import "./chunk-5QULIR53.js";
-import "./chunk-SOWMRMWA.js";
-import "./chunk-STW2DGFI.js";
-import {
-  defaultValue_default
-} from "./chunk-BBWDMCVU.js";
+  Cartesian3_default,
+  Frozen_default
+} from "./chunk-CF72FAKC.js";
+import "./chunk-NP46ZIBY.js";
+import "./chunk-3G5XEUPY.js";
+import "./chunk-PXDMWXO5.js";
 import {
   Check_default,
   DeveloperError_default
-} from "./chunk-XGI5BXZY.js";
+} from "./chunk-JJZWDROM.js";
 import {
   defined_default
-} from "./chunk-YWTJ2B4B.js";
+} from "./chunk-5GHCWGC4.js";
 
 // packages/engine/Source/Core/CylinderOutlineGeometry.js
 var radiusScratch = new Cartesian2_default();
 function CylinderOutlineGeometry(options) {
-  options = defaultValue_default(options, defaultValue_default.EMPTY_OBJECT);
+  options = options ?? Frozen_default.EMPTY_OBJECT;
   const length = options.length;
   const topRadius = options.topRadius;
   const bottomRadius = options.bottomRadius;
-  const slices = defaultValue_default(options.slices, 128);
+  const slices = options.slices ?? 128;
   const numberOfVerticalLines = Math.max(
-    defaultValue_default(options.numberOfVerticalLines, 16),
+    options.numberOfVerticalLines ?? 16,
     0
   );
   Check_default.typeOf.number("options.positions", length);
@@ -100,13 +96,13 @@ CylinderOutlineGeometry.packedLength = 6;
 CylinderOutlineGeometry.pack = function(value, array, startingIndex) {
   Check_default.typeOf.object("value", value);
   Check_default.defined("array", array);
-  startingIndex = defaultValue_default(startingIndex, 0);
+  startingIndex = startingIndex ?? 0;
   array[startingIndex++] = value._length;
   array[startingIndex++] = value._topRadius;
   array[startingIndex++] = value._bottomRadius;
   array[startingIndex++] = value._slices;
   array[startingIndex++] = value._numberOfVerticalLines;
-  array[startingIndex] = defaultValue_default(value._offsetAttribute, -1);
+  array[startingIndex] = value._offsetAttribute ?? -1;
   return array;
 };
 var scratchOptions = {
@@ -119,7 +115,7 @@ var scratchOptions = {
 };
 CylinderOutlineGeometry.unpack = function(array, startingIndex, result) {
   Check_default.defined("array", array);
-  startingIndex = defaultValue_default(startingIndex, 0);
+  startingIndex = startingIndex ?? 0;
   const length = array[startingIndex++];
   const topRadius = array[startingIndex++];
   const bottomRadius = array[startingIndex++];

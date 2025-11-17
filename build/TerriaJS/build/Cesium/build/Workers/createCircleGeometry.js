@@ -1,7 +1,7 @@
 /**
  * @license
  * Cesium - https://github.com/CesiumGS/cesium
- * Version 1.115
+ * Version 1.134.0
  *
  * Copyright 2011-2022 Cesium Contributors
  *
@@ -25,46 +25,42 @@
 
 import {
   EllipseGeometry_default
-} from "./chunk-JURN7NPV.js";
-import "./chunk-EERJKOAF.js";
-import "./chunk-BIKA3NRA.js";
-import "./chunk-EG6PTBY2.js";
-import "./chunk-Z3TIFFGF.js";
-import "./chunk-ZT7KWISZ.js";
-import "./chunk-F3YA3Y2Z.js";
+} from "./chunk-EAYW4CFP.js";
+import "./chunk-6J6WGCWP.js";
+import "./chunk-FFCKCQPK.js";
+import "./chunk-TUZQG4RW.js";
+import "./chunk-GKCZ2G36.js";
+import "./chunk-HJ7IZBEI.js";
+import "./chunk-AR2FUSG6.js";
 import {
   VertexFormat_default
-} from "./chunk-2FWRMUTY.js";
-import "./chunk-2FRVPMCS.js";
-import "./chunk-Y5UQJLYE.js";
-import "./chunk-LPR3YNP2.js";
-import "./chunk-4H7PY4U5.js";
-import "./chunk-7TC63SJW.js";
-import "./chunk-FJKNFAKQ.js";
-import "./chunk-TTUZP4BO.js";
-import "./chunk-BG4UCVXN.js";
-import "./chunk-YJEBABKH.js";
-import "./chunk-PPH7OFP3.js";
+} from "./chunk-64WSG7AT.js";
+import "./chunk-2T4WAVWX.js";
+import "./chunk-BUBVUXDO.js";
+import "./chunk-7PLX65MV.js";
+import "./chunk-S4NZVXU6.js";
+import "./chunk-ARYRHDEB.js";
+import "./chunk-BU4CGMHO.js";
+import "./chunk-TG7N7TPY.js";
+import "./chunk-EHFMZFVC.js";
 import {
   Cartesian3_default,
-  Ellipsoid_default
-} from "./chunk-OGXZVPPM.js";
-import "./chunk-5QULIR53.js";
-import "./chunk-SOWMRMWA.js";
-import "./chunk-STW2DGFI.js";
-import {
-  defaultValue_default
-} from "./chunk-BBWDMCVU.js";
+  Ellipsoid_default,
+  Frozen_default
+} from "./chunk-CF72FAKC.js";
+import "./chunk-NP46ZIBY.js";
+import "./chunk-3G5XEUPY.js";
+import "./chunk-PXDMWXO5.js";
 import {
   Check_default
-} from "./chunk-XGI5BXZY.js";
+} from "./chunk-JJZWDROM.js";
 import {
   defined_default
-} from "./chunk-YWTJ2B4B.js";
+} from "./chunk-5GHCWGC4.js";
 
 // packages/engine/Source/Core/CircleGeometry.js
 function CircleGeometry(options) {
-  options = defaultValue_default(options, defaultValue_default.EMPTY_OBJECT);
+  options = options ?? Frozen_default.EMPTY_OBJECT;
   const radius = options.radius;
   Check_default.typeOf.number("radius", radius);
   const ellipseGeometryOptions = {
@@ -95,7 +91,7 @@ var scratchEllipseGeometry = new EllipseGeometry_default({
 var scratchOptions = {
   center: new Cartesian3_default(),
   radius: void 0,
-  ellipsoid: Ellipsoid_default.clone(Ellipsoid_default.UNIT_SPHERE),
+  ellipsoid: Ellipsoid_default.clone(Ellipsoid_default.default),
   height: void 0,
   extrudedHeight: void 0,
   granularity: void 0,
@@ -118,6 +114,10 @@ CircleGeometry.unpack = function(array, startingIndex, result) {
   scratchOptions.ellipsoid = Ellipsoid_default.clone(
     ellipseGeometry._ellipsoid,
     scratchOptions.ellipsoid
+  );
+  scratchOptions.ellipsoid = Ellipsoid_default.clone(
+    ellipseGeometry._ellipsoid,
+    scratchEllipseGeometry._ellipsoid
   );
   scratchOptions.height = ellipseGeometry._height;
   scratchOptions.extrudedHeight = ellipseGeometry._extrudedHeight;

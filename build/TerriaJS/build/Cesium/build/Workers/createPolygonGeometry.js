@@ -1,7 +1,7 @@
 /**
  * @license
  * Cesium - https://github.com/CesiumGS/cesium
- * Version 1.115
+ * Version 1.134.0
  *
  * Copyright 2011-2022 Cesium Contributors
  *
@@ -25,84 +25,80 @@
 
 import {
   BoundingRectangle_default
-} from "./chunk-2A75IWRS.js";
+} from "./chunk-YNLPRFUQ.js";
 import {
   PolygonGeometryLibrary_default
-} from "./chunk-I46ZRR5W.js";
+} from "./chunk-4PFQUFKJ.js";
 import {
   ArcType_default
-} from "./chunk-EHWHNOEX.js";
+} from "./chunk-E5XCZVIY.js";
 import {
   GeometryInstance_default
-} from "./chunk-BIKA3NRA.js";
+} from "./chunk-FFCKCQPK.js";
 import {
   GeometryPipeline_default
-} from "./chunk-EG6PTBY2.js";
-import "./chunk-Z3TIFFGF.js";
-import "./chunk-ZT7KWISZ.js";
+} from "./chunk-TUZQG4RW.js";
+import "./chunk-GKCZ2G36.js";
+import "./chunk-HJ7IZBEI.js";
 import {
   GeometryOffsetAttribute_default
-} from "./chunk-F3YA3Y2Z.js";
+} from "./chunk-AR2FUSG6.js";
 import {
   VertexFormat_default
-} from "./chunk-2FWRMUTY.js";
+} from "./chunk-64WSG7AT.js";
 import {
   EllipsoidTangentPlane_default
-} from "./chunk-FNIRWHJB.js";
-import "./chunk-G43QFN4Q.js";
+} from "./chunk-4VJYMLR6.js";
+import "./chunk-UY2HVPDL.js";
 import {
   PolygonPipeline_default,
   WindingOrder_default
-} from "./chunk-MDWEGWPA.js";
-import "./chunk-FZRIVR7Y.js";
-import "./chunk-SH5USDPI.js";
+} from "./chunk-TFG63RWC.js";
+import "./chunk-3OPG2FGI.js";
+import "./chunk-75B34CC6.js";
 import {
   IntersectionTests_default,
   Ray_default
-} from "./chunk-2FRVPMCS.js";
-import "./chunk-Y5UQJLYE.js";
+} from "./chunk-2T4WAVWX.js";
+import "./chunk-BUBVUXDO.js";
 import {
   IndexDatatype_default
-} from "./chunk-LPR3YNP2.js";
-import "./chunk-4H7PY4U5.js";
+} from "./chunk-7PLX65MV.js";
+import "./chunk-S4NZVXU6.js";
 import {
   GeometryAttribute_default,
   Geometry_default
-} from "./chunk-7TC63SJW.js";
+} from "./chunk-ARYRHDEB.js";
 import {
-  BoundingSphere_default,
-  Quaternion_default
-} from "./chunk-FJKNFAKQ.js";
-import "./chunk-TTUZP4BO.js";
-import "./chunk-BG4UCVXN.js";
+  BoundingSphere_default
+} from "./chunk-BU4CGMHO.js";
 import {
+  Quaternion_default,
   Rectangle_default
-} from "./chunk-YJEBABKH.js";
+} from "./chunk-TG7N7TPY.js";
 import {
   ComponentDatatype_default
-} from "./chunk-PPH7OFP3.js";
+} from "./chunk-EHFMZFVC.js";
 import {
   Cartesian2_default,
   Cartesian3_default,
   Cartographic_default,
   Ellipsoid_default,
+  Frozen_default,
   Matrix3_default
-} from "./chunk-OGXZVPPM.js";
+} from "./chunk-CF72FAKC.js";
 import {
   Math_default
-} from "./chunk-5QULIR53.js";
-import "./chunk-SOWMRMWA.js";
-import "./chunk-STW2DGFI.js";
-import {
-  defaultValue_default
-} from "./chunk-BBWDMCVU.js";
+} from "./chunk-NP46ZIBY.js";
+import "./chunk-3G5XEUPY.js";
+import "./chunk-PXDMWXO5.js";
 import {
   Check_default,
   DeveloperError_default
-} from "./chunk-XGI5BXZY.js";
+} from "./chunk-JJZWDROM.js";
 import {
   defined_default
-} from "./chunk-YWTJ2B4B.js";
+} from "./chunk-5GHCWGC4.js";
 
 // packages/engine/Source/Core/Stereographic.js
 function Stereographic(position, tangentPlane) {
@@ -178,7 +174,7 @@ var scratchCartographic = new Cartographic_default();
 var scratchCartesian = new Cartesian3_default();
 Stereographic.prototype.getLatitude = function(ellipsoid) {
   if (!defined_default(ellipsoid)) {
-    ellipsoid = Ellipsoid_default.WGS84;
+    ellipsoid = Ellipsoid_default.default;
   }
   scratchCartographic.latitude = this.conformalLatitude;
   scratchCartographic.longitude = this.longitude;
@@ -385,7 +381,7 @@ function computeAttributes(options) {
             scratchPosition
           );
           p = ellipsoid.scaleToGeodeticSurface(p, p);
-          const st = projectTo2d(p, appendTextureCoordinatesCartesian2);
+          const st = projectTo2d([p], appendTextureCoordinatesCartesian2)[0];
           Cartesian2_default.subtract(st, origin, st);
           const stx = Math_default.clamp(st.x / boundingRectangle.width, 0, 1);
           const sty = Math_default.clamp(st.y / boundingRectangle.height, 0, 1);
@@ -736,18 +732,15 @@ function PolygonGeometry(options) {
     );
   }
   const polygonHierarchy = options.polygonHierarchy;
-  const vertexFormat = defaultValue_default(options.vertexFormat, VertexFormat_default.DEFAULT);
-  const ellipsoid = defaultValue_default(options.ellipsoid, Ellipsoid_default.WGS84);
-  const granularity = defaultValue_default(
-    options.granularity,
-    Math_default.RADIANS_PER_DEGREE
-  );
-  const stRotation = defaultValue_default(options.stRotation, 0);
+  const vertexFormat = options.vertexFormat ?? VertexFormat_default.DEFAULT;
+  const ellipsoid = options.ellipsoid ?? Ellipsoid_default.default;
+  const granularity = options.granularity ?? Math_default.RADIANS_PER_DEGREE;
+  const stRotation = options.stRotation ?? 0;
   const textureCoordinates = options.textureCoordinates;
-  const perPositionHeight = defaultValue_default(options.perPositionHeight, false);
+  const perPositionHeight = options.perPositionHeight ?? false;
   const perPositionHeightExtrude = perPositionHeight && defined_default(options.extrudedHeight);
-  let height = defaultValue_default(options.height, 0);
-  let extrudedHeight = defaultValue_default(options.extrudedHeight, height);
+  let height = options.height ?? 0;
+  let extrudedHeight = options.extrudedHeight ?? height;
   if (!perPositionHeightExtrude) {
     const h = Math.max(height, extrudedHeight);
     extrudedHeight = Math.min(height, extrudedHeight);
@@ -759,15 +752,15 @@ function PolygonGeometry(options) {
   this._stRotation = stRotation;
   this._height = height;
   this._extrudedHeight = extrudedHeight;
-  this._closeTop = defaultValue_default(options.closeTop, true);
-  this._closeBottom = defaultValue_default(options.closeBottom, true);
+  this._closeTop = options.closeTop ?? true;
+  this._closeBottom = options.closeBottom ?? true;
   this._polygonHierarchy = polygonHierarchy;
   this._perPositionHeight = perPositionHeight;
   this._perPositionHeightExtrude = perPositionHeightExtrude;
-  this._shadowVolume = defaultValue_default(options.shadowVolume, false);
+  this._shadowVolume = options.shadowVolume ?? false;
   this._workerName = "createPolygonGeometry";
   this._offsetAttribute = options.offsetAttribute;
-  this._arcType = defaultValue_default(options.arcType, ArcType_default.GEODESIC);
+  this._arcType = options.arcType ?? ArcType_default.GEODESIC;
   this._rectangle = void 0;
   this._textureCoordinateRotationPoints = void 0;
   this._textureCoordinates = textureCoordinates;
@@ -780,7 +773,7 @@ function PolygonGeometry(options) {
   ) : 1) + 12;
 }
 PolygonGeometry.fromPositions = function(options) {
-  options = defaultValue_default(options, defaultValue_default.EMPTY_OBJECT);
+  options = options ?? Frozen_default.EMPTY_OBJECT;
   Check_default.defined("options.positions", options.positions);
   const newOptions = {
     polygonHierarchy: {
@@ -804,7 +797,7 @@ PolygonGeometry.fromPositions = function(options) {
 PolygonGeometry.pack = function(value, array, startingIndex) {
   Check_default.typeOf.object("value", value);
   Check_default.defined("array", array);
-  startingIndex = defaultValue_default(startingIndex, 0);
+  startingIndex = startingIndex ?? 0;
   startingIndex = PolygonGeometryLibrary_default.packPolygonHierarchy(
     value._polygonHierarchy,
     array,
@@ -824,7 +817,7 @@ PolygonGeometry.pack = function(value, array, startingIndex) {
   array[startingIndex++] = value._closeTop ? 1 : 0;
   array[startingIndex++] = value._closeBottom ? 1 : 0;
   array[startingIndex++] = value._shadowVolume ? 1 : 0;
-  array[startingIndex++] = defaultValue_default(value._offsetAttribute, -1);
+  array[startingIndex++] = value._offsetAttribute ?? -1;
   array[startingIndex++] = value._arcType;
   if (defined_default(value._textureCoordinates)) {
     startingIndex = PolygonGeometryLibrary_default.packPolygonHierarchy(
@@ -846,7 +839,7 @@ var dummyOptions = {
 };
 PolygonGeometry.unpack = function(array, startingIndex, result) {
   Check_default.defined("array", array);
-  startingIndex = defaultValue_default(startingIndex, 0);
+  startingIndex = startingIndex ?? 0;
   const polygonHierarchy = PolygonGeometryLibrary_default.unpackPolygonHierarchy(
     array,
     startingIndex,
@@ -1296,13 +1289,11 @@ PolygonGeometry.createGeometry = function(polygonGeometry) {
         const length = geometryInstance.geometry.attributes.position.values.length;
         const offsetValue = polygonGeometry._offsetAttribute === GeometryOffsetAttribute_default.NONE ? 0 : 1;
         const applyOffset = new Uint8Array(length / 3).fill(offsetValue);
-        geometryInstance.geometry.attributes.applyOffset = new GeometryAttribute_default(
-          {
-            componentDatatype: ComponentDatatype_default.UNSIGNED_BYTE,
-            componentsPerAttribute: 1,
-            values: applyOffset
-          }
-        );
+        geometryInstance.geometry.attributes.applyOffset = new GeometryAttribute_default({
+          componentDatatype: ComponentDatatype_default.UNSIGNED_BYTE,
+          componentsPerAttribute: 1,
+          values: applyOffset
+        });
       }
       geometries.push(geometryInstance);
     }
@@ -1387,9 +1378,7 @@ Object.defineProperties(PolygonGeometry.prototype, {
   textureCoordinateRotationPoints: {
     get: function() {
       if (!defined_default(this._textureCoordinateRotationPoints)) {
-        this._textureCoordinateRotationPoints = textureCoordinateRotationPoints(
-          this
-        );
+        this._textureCoordinateRotationPoints = textureCoordinateRotationPoints(this);
       }
       return this._textureCoordinateRotationPoints;
     }

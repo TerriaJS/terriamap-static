@@ -1,7 +1,7 @@
 /**
  * @license
  * Cesium - https://github.com/CesiumGS/cesium
- * Version 1.115
+ * Version 1.134.0
  *
  * Copyright 2011-2022 Cesium Contributors
  *
@@ -26,48 +26,44 @@
 import {
   EllipsoidalOccluder_default,
   TerrainEncoding_default
-} from "./chunk-HU6N6EXB.js";
+} from "./chunk-K4IDXMIZ.js";
 import {
   createTaskProcessorWorker_default
-} from "./chunk-3VAZEH7M.js";
+} from "./chunk-LNTUIO55.js";
 import {
   WebMercatorProjection_default
-} from "./chunk-2UPKWTMJ.js";
-import "./chunk-Z3TIFFGF.js";
+} from "./chunk-BDPSQXLX.js";
+import "./chunk-GKCZ2G36.js";
 import {
   AxisAlignedBoundingBox_default
-} from "./chunk-G43QFN4Q.js";
+} from "./chunk-UY2HVPDL.js";
 import {
   IndexDatatype_default
-} from "./chunk-LPR3YNP2.js";
-import {
-  Transforms_default
-} from "./chunk-FJKNFAKQ.js";
-import "./chunk-TTUZP4BO.js";
-import "./chunk-BG4UCVXN.js";
+} from "./chunk-7PLX65MV.js";
+import "./chunk-BU4CGMHO.js";
 import {
   Matrix4_default,
-  Rectangle_default
-} from "./chunk-YJEBABKH.js";
-import "./chunk-PPH7OFP3.js";
+  Rectangle_default,
+  Transforms_default
+} from "./chunk-TG7N7TPY.js";
+import "./chunk-EHFMZFVC.js";
 import {
   Cartesian2_default,
   Cartesian3_default,
   Cartographic_default,
   Ellipsoid_default
-} from "./chunk-OGXZVPPM.js";
+} from "./chunk-CF72FAKC.js";
 import {
   Math_default
-} from "./chunk-5QULIR53.js";
-import "./chunk-SOWMRMWA.js";
-import "./chunk-STW2DGFI.js";
-import "./chunk-BBWDMCVU.js";
+} from "./chunk-NP46ZIBY.js";
+import "./chunk-3G5XEUPY.js";
+import "./chunk-PXDMWXO5.js";
 import {
   DeveloperError_default
-} from "./chunk-XGI5BXZY.js";
+} from "./chunk-JJZWDROM.js";
 import {
   defined_default
-} from "./chunk-YWTJ2B4B.js";
+} from "./chunk-5GHCWGC4.js";
 
 // packages/engine/Source/Core/TerrainProvider.js
 function TerrainProvider() {
@@ -129,7 +125,7 @@ Object.defineProperties(TerrainProvider.prototype, {
    * at points and in rectangles. This property may be undefined if availability
    * information is not available.
    * @memberof TerrainProvider.prototype
-   * @type {TileAvailability}
+   * @type {TileAvailability|undefined}
    * @readonly
    */
   availability: {
@@ -359,9 +355,7 @@ function createVerticesFromQuantizedTerrainMesh(parameters, transferableObjects)
   let southMercatorY;
   let oneOverMercatorHeight;
   if (includeWebMercatorT) {
-    southMercatorY = WebMercatorProjection_default.geodeticLatitudeToMercatorAngle(
-      south
-    );
+    southMercatorY = WebMercatorProjection_default.geodeticLatitudeToMercatorAngle(south);
     oneOverMercatorHeight = 1 / (WebMercatorProjection_default.geodeticLatitudeToMercatorAngle(north) - southMercatorY);
   }
   const uBuffer = quantizedVertices.subarray(0, quantizedVertexCount);
@@ -424,18 +418,30 @@ function createVerticesFromQuantizedTerrainMesh(parameters, transferableObjects)
     Cartesian3_default.minimumByComponent(cartesian3Scratch, minimum, minimum);
     Cartesian3_default.maximumByComponent(cartesian3Scratch, maximum, maximum);
   }
-  const westIndicesSouthToNorth = copyAndSort(parameters.westIndices, function(a, b) {
-    return uvs[a].y - uvs[b].y;
-  });
-  const eastIndicesNorthToSouth = copyAndSort(parameters.eastIndices, function(a, b) {
-    return uvs[b].y - uvs[a].y;
-  });
-  const southIndicesEastToWest = copyAndSort(parameters.southIndices, function(a, b) {
-    return uvs[b].x - uvs[a].x;
-  });
-  const northIndicesWestToEast = copyAndSort(parameters.northIndices, function(a, b) {
-    return uvs[a].x - uvs[b].x;
-  });
+  const westIndicesSouthToNorth = copyAndSort(
+    parameters.westIndices,
+    function(a, b) {
+      return uvs[a].y - uvs[b].y;
+    }
+  );
+  const eastIndicesNorthToSouth = copyAndSort(
+    parameters.eastIndices,
+    function(a, b) {
+      return uvs[b].y - uvs[a].y;
+    }
+  );
+  const southIndicesEastToWest = copyAndSort(
+    parameters.southIndices,
+    function(a, b) {
+      return uvs[b].x - uvs[a].x;
+    }
+  );
+  const northIndicesWestToEast = copyAndSort(
+    parameters.northIndices,
+    function(a, b) {
+      return uvs[a].x - uvs[b].x;
+    }
+  );
   let occludeePointInScaledSpace;
   if (minimumHeight < 0) {
     const occluder = new EllipsoidalOccluder_default(ellipsoid);

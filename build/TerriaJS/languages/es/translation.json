@@ -133,7 +133,8 @@
     },
     "raiseError": {
       "notificationFeedback": "Para preguntas y comentarios, haga click aquí.",
-      "developerDetails": "Detalles para desarrolladores"
+      "developerDetails": "Detalles para desarrolladores",
+      "notificationFeedbackEmail": "Para preguntas y comentarios, por favor contáctenos en {{email}}"
     },
     "mapboxVectorTile": {
       "name": "Teselas vectoriales de Mapbox (MVT)"
@@ -524,7 +525,9 @@
     "colorScaleRangeMax": "El valor mínimo debe ser un número.",
     "addItemErrorTitle": "No se ha podido añadir el artículo del catálogo al banco de trabajo.",
     "addItemErrorMessage": "Se ha producido un error al cargar el elemento del catálogo.",
-    "splitScreenMode": "MODO DE PANTALLA DIVIDIDA"
+    "splitScreenMode": "MODO DE PANTALLA DIVIDIDA",
+    "disableAll": "Deshabilitar Todos",
+    "enableAll": "Habilitar Todos"
   },
   "search": {
     "data": "Datos",
@@ -546,21 +549,21 @@
     "done": "Hecho",
     "btnHide": "Ocultar",
     "webAdd": "Añadir datos de la web",
-    "webFile": "<0>Step 2:</0> Introduzca la URL del archivo de datos o del servicio web",
+    "webFile": "<0>Paso 2:</0> Introduzca la URL del archivo de datos o del servicio web",
     "localTitle": "Añadir datos locales",
     "searchPlaceholderWhole": "Buscar en todo el catálogo",
     "searchPlaceholder": "Buscar en el catálogo",
     "localAdd": "Añadir archivo local",
-    "webFileType": "<0>Step 1:</0> Seleccione el tipo de archivo o servicio web",
+    "webFileType": "<0>Paso 1:</0> Seleccione el tipo de archivo o servicio web",
     "infoText": "<0>Arrastra y suelta un archivo aquí para verlo localmente en el mapa</0><1>(no se guardará ni se subirá a Internet)</1>",
     "note": "<0>Nota: </0>Los datos añadidos de esta manera no se guardan ni se hacen visibles para los demás.",
-    "addDataBtnText": "Explorar los datos del mapa",
+    "addDataBtnText": "Explorar datos",
     "load": "Cargar datos locales/web",
     "closeDataPanel": "Cerrar el panel de datos",
-    "localFile": "<0>Step 2:</0> Seleccionar archivo",
+    "localFile": "<0>Paso 2:</0> Seleccionar archivo",
     "webTitle": "Añadir datos web",
     "dataCatalogue": "Catálogo de datos",
-    "localFileType": "<0>Step 1:</0> Seleccionar tipo de archivo"
+    "localFileType": "<0>Paso 1:</0> Seleccionar tipo de archivo"
   },
   "satelliteGuidance": {
     "prevI": "No, gracias",
@@ -677,7 +680,8 @@
     "location": "Localización",
     "myLocation": "Mi localización",
     "browserCannotProvide": "Su navegador no puede proporcionar su localización.",
-    "originError": "Su navegador solo puede proveer su localización cuando usa HTTPS. Puede utilizar {{secureUrl}} en su lugar."
+    "originError": "Su navegador solo puede proveer su localización cuando usa HTTPS. Puede utilizar {{secureUrl}} en su lugar.",
+    "permissionDenied": "Permiso denegado para obtener tu localización. Por favor, revisa la configuración de tu navegador."
   },
   "countDatasets": {
     "loadError": "No se pudo cargar.",
@@ -1007,17 +1011,9 @@
     "welcomeMessageOnMobile": "¿Le interesa el descubrimiento y la exploración de datos?",
     "tourBtnText": "Haz el recorrido"
   },
-  "emptyWorkbenchMessage": "<0><0>Tu bandeja de trabajo esta vacía</0><1><strong>Click '$t(addData.addDataBtnText)' arriba de</strong></1><2><0>Buscar en el catálogo de datos</0><1>Carga tu propia información en el mapa</1></2><3><0></0><strong>TIP.</strong><2> Todos sus conjuntos de datos activos aparecerán aquí</2></3></0>",
   "dragDrop": {
     "not": "<0>bbbb</0>",
     "text": "<0>Arrastrar y soltar</0><1>Sus datos en cualquier lugar para verlos en el mapa<1>"
-  },
-  "emptyWorkbench": {
-    "helpfulHints": "Consejos útiles",
-    "emptyArea": "Su banco de trabajo está vacío",
-    "helpfulHintsOne": "Busque los datos disponibles seleccionando \"Explorar los datos del mapa\" o haga clic en \"Subir\" para añadir sus propios datos al mapa.",
-    "helpfulHintsTwo": "Una vez que hayas añadido datos al mapa, tus conjuntos de datos activos aparecerán aquí en tu banco de trabajo. El banco de trabajo le ayudará a interactuar con los datos.",
-    "helpfulHintsThree": "En el banco de trabajo puede activar y desactivar conjuntos de datos, cambiar su opacidad, activar la comparación en pantalla dividida, cambiar estilos y navegar por fechas y horas, si los datos admiten esta funcionalidad."
   },
   "timer": {
     "nextScheduledUpdateTime": "Próxima actualización de datos a {{scheduledUpdateTime}}",
@@ -1226,5 +1222,32 @@
     "controls": {
       "title": "Controles"
     }
-  }
+  },
+  "emptyWorkbenchInfo": [
+    {
+      "heading": "Agrega un conjunto de datos aquí",
+      "body": "Cuando agregues un conjunto de datos, su leyenda y configuraciones aparecerán aquí."
+    },
+    {
+      "heading": "Comienza",
+      "list": [
+        "Haz clic en Explorar los datos del mapa para ver los conjuntos de datos disponibles",
+        "Carga tus propios conjuntos de datos mediante el botón Subir",
+        "Encuentra tus datos agregados en este panel"
+      ]
+    },
+    {
+      "heading": "Lo que puedes hacer",
+      "list": [
+        "Mostrar u ocultar datos",
+        "Ajustar la transparencia (opacidad)",
+        "Comparar lado a lado",
+        "Cambiar estilos (colores, líneas, símbolos)",
+        "Ver diferentes fechas y horas (si los datos lo soportan)"
+      ]
+    },
+    {
+      "body": "Usa este panel para explorar datos, gestionar configuraciones y construir tu escena o historia en el mapa."
+    }
+  ]
 }
