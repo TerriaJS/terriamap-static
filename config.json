@@ -12,6 +12,7 @@
       "text": "Disclaimer: This map must not be used for navigation or precise spatial analysis",
       "url": ""
     },
+    "cesiumIonAccessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2MTEyZmRjYy05OTBmLTQ3OGUtOGVjMi0wNDIzYTAwMjMxNWEiLCJpZCI6MzEyNjY0LCJpYXQiOjE3NjMzNDQ4NzF9.sKMeu-ABGmwjp26dLzYQGEkaf26aO6xlQn-qJ1ClRIM",
     "useCesiumIonBingImagery": true,
     /*
         // Text that will be added to any pages printed from your site.

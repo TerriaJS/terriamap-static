@@ -29,6 +29,7 @@
         {
           "type": "3d-tiles",
           "ionAssetId": 96188,
+          "ionAccessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2MTEyZmRjYy05OTBmLTQ3OGUtOGVjMi0wNDIzYTAwMjMxNWEiLCJpZCI6MzEyNjY0LCJpYXQiOjE3NjMzNDQ4NzF9.sKMeu-ABGmwjp26dLzYQGEkaf26aO6xlQn-qJ1ClRIM",
           "name": "Cesium OSM Buildings",
           "id": "osm-buildings"
         }
