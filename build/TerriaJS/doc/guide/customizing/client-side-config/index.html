@@ -1,0 +1,4369 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../initialization-files/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Client-side Config - TerriaJS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#client-side-config" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="TerriaJS" class="md-header__button md-logo" aria-label="TerriaJS" data-md-component="logo">
+      
+  <img src="../../terria.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TerriaJS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Client-side Config
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TerriaJS" class="md-nav__button md-logo" aria-label="TerriaJS" data-md-component="logo">
+      
+  <img src="../../terria.png" alt="logo">
+
+    </a>
+    TerriaJS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Customizing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Customizing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Client-side Config
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Client-side Config
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intializationurls" class="md-nav__link">
+    <span class="md-ellipsis">
+      intializationUrls
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="intializationUrls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#init-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      Init URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#init-fragment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Init fragment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#init-fragment-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      Init fragment paths
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v7initializationurls" class="md-nav__link">
+    <span class="md-ellipsis">
+      v7initializationUrls
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#magdareferenceheaders" class="md-nav__link">
+    <span class="md-ellipsis">
+      MagdaReferenceHeaders
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helpcontentitem" class="md-nav__link">
+    <span class="md-ellipsis">
+      HelpContentItem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HelpContentItem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#traineritem" class="md-nav__link">
+    <span class="md-ellipsis">
+      TrainerItem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stepitem" class="md-nav__link">
+    <span class="md-ellipsis">
+      StepItem
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#term" class="md-nav__link">
+    <span class="md-ellipsis">
+      Term
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#languageconfiguration" class="md-nav__link">
+    <span class="md-ellipsis">
+      LanguageConfiguration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errorserviceoptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      ErrorServiceOptions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relatedmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      RelatedMap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#credits-attribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credits (attribution)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Credits (attribution)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#credits-default-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credits default value
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searchbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      SearchBar
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../initialization-files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Initialization Files
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../server-side-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Server-side Config
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloning-and-building/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloning and Building
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skinning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Skinning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../translation-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Translation guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../search-providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Search Providers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Connecting to Data
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Connecting to Data
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/cross-origin-resource-sharing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cross-Origin Resource Sharing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Catalog Groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-items/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Catalog Items
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/item-search/indexed-item-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Item Search
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Customizing Data Appearance
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            Customizing Data Appearance
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/customizing-data-appearance/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/customizing-data-appearance/imagery-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Imagery Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/customizing-data-appearance/tabular-vector-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tabular and Vector Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/customizing-data-appearance/feature-info-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Feature Information Template
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/customizing-data-appearance/model-dimensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model Dimensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Catalog Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Catalog References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Catalog Type Details
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            Catalog Type Details
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/api-table/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ApiTableCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/esri-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/esri-featureServer-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisFeatureServerCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/esri-featureServer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisFeatureServerCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/esri-imageServer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisImageServerCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/esri-mapServer-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisMapServerCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/esri-mapServer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisMapServerCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/arcgis-portal-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisPortalCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/arcgis-portal-item/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisPortalItemReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/arcgis-terrain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisTerrainCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/assimp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AssImpCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/bing-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BingMapsCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/carto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CartoMapV1CatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/carto-v3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CartoMapV3CatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/catalog-index-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CatalogIndexReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/3d-tiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cesium3DTilesCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/cesium-terrain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CesiumTerrainCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/ckan-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CkanCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/ckan-item/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CkanItemReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/cog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CogCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/composite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CompositeCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/csv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CsvCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/csw-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CswCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/czml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CzmlCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/geojson/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GeoJsonCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/georss/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GeoRssCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/gltf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GltfCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/gpx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GpxCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/gtfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GtfsCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/i3s/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    I3SCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/ion-imagery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IonImageryCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/kml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KmlCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/magda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MagdaReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/mapbox-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MapboxMapCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/mapbox-style/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MapboxStyleCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/mvt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MapboxVectorTileCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/opendatasoft-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenDataSoftCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/opendatasoft-item/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenDataSoftCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/open-street-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenStreetMapCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/sdmx-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SdmxCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/sdmx-json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SdmxJsonCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/senaps-locations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SenapsLocationsCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/sos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SensorObservationServiceCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/shp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShapefileCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/socrata-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SocrataCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/socrata-map-item/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SocrataMapViewCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/split-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SplitItemReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/stub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    StubCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/terria-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TerriaReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/thredds-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ThreddsCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/tms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TileMapServiceCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/url-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UrlReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/url-template-imagery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UrlTemplateImageryCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/wfs-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebFeatureServiceCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/wfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebFeatureServiceCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/wms-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebMapServiceCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/wms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebMapServiceCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/wmts-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebMapTileServiceCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/wmts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebMapTileServiceCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/wps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebProcessingServiceCatalogFunction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/wps-result/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebProcessingServiceCatalogFunctionJob
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/wps-getCapabilities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebProcessingServiceCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/ydyr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    YDYRCatalogFunction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/ydyr-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    YDYRCatalogFunctionJob
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deploying
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Deploying
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying/deploying-terriamap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploying TerriaMap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying/deploying-with-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploying with Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying/setting-up-a-region-mapping-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setting Up a Region Mapping Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying/setting-up-geoserver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setting Up Geoserver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying/using-as-a-ckan-previewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using as a CKAN Previewer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying/controlling-with-url-parameters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Controlling with URL Parameters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying/controlling-in-an-iframe-or-popup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Controlling in an &lt;iframe&gt; or Popup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Contributing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/development-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development Environment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/using-a-custom-version-of-cesium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using a Custom Version of Cesium
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/problems-and-solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Problems and Solutions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/model-layer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    New model layer documentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/traits-in-depth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Traits in depth
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/strata-examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Strata Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/init-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Init sources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/frontend-style-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Frontend style guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/migration-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Version 8 migration guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/translation-guide-dev/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development translation guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Acknowledgements
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Acknowledgements
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acknowledgements/attributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Attributions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intializationurls" class="md-nav__link">
+    <span class="md-ellipsis">
+      intializationUrls
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="intializationUrls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#init-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      Init URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#init-fragment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Init fragment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#init-fragment-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      Init fragment paths
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v7initializationurls" class="md-nav__link">
+    <span class="md-ellipsis">
+      v7initializationUrls
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#magdareferenceheaders" class="md-nav__link">
+    <span class="md-ellipsis">
+      MagdaReferenceHeaders
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helpcontentitem" class="md-nav__link">
+    <span class="md-ellipsis">
+      HelpContentItem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HelpContentItem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#traineritem" class="md-nav__link">
+    <span class="md-ellipsis">
+      TrainerItem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stepitem" class="md-nav__link">
+    <span class="md-ellipsis">
+      StepItem
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#term" class="md-nav__link">
+    <span class="md-ellipsis">
+      Term
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#languageconfiguration" class="md-nav__link">
+    <span class="md-ellipsis">
+      LanguageConfiguration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errorserviceoptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      ErrorServiceOptions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relatedmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      RelatedMap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#credits-attribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credits (attribution)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Credits (attribution)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#credits-default-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credits default value
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searchbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      SearchBar
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="client-side-config">Client-side config</h1>
+<p>The file <code>wwwroot/config.json</code> in TerriaMap contains client-side configuration parameters. See <a href="https://github.com/TerriaJS/TerriaMap/blob/main/wwwroot/config.json">this file for an example</a>.</p>
+<p>It has following structure:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#intializationurls">initializationUrls</a></td>
+<td>yes</td>
+<td><strong>string[]</strong></td>
+<td>[]</td>
+<td>The list of initialization files which define the catalog content, for more details check <a href="#intializationurls">below</a>.</td>
+</tr>
+<tr>
+<td><a href="#v7initializationurls">v7initializationUrls</a></td>
+<td>yes</td>
+<td><strong>string[]</strong></td>
+<td>[]</td>
+<td>The list of v7 initialization files &mdash; these will be converted to v8 on the fly using <a href="https://github.com/TerriaJS/catalog-converter"><code>catalog-converter</code></a>. For more details check <a href="#v7initializationUrls">below</a>.</td>
+</tr>
+<tr>
+<td>parameters</td>
+<td>yes</td>
+<td><strong><a href="#parameters">Parameters</a></strong></td>
+<td></td>
+<td>TerriaJS configuration options</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-json5">{
+    &quot;initializationUrls&quot; : [
+        &quot;https://someurl.com/file.json&quot;,
+        &quot;init-fragment&quot;
+    ],
+    &quot;parameters&quot;: {
+        &quot;bingMapsKey&quot;: &quot;...&quot;,
+        ...
+    }
+}
+</code></pre>
+<h2 id="intializationurls"><code>intializationUrls</code></h2>
+<p>Each string in the array specifies a single <a href="../initialization-files/">initialization file</a> (catalog) to be loaded by TerriaJS. The init files are loaded in the order they're specified.</p>
+<h3 id="init-url">Init URL</h3>
+<p>If a string ends with <code>.json</code>, it is assumed to be a complete relative or absolute URL to an init file. The file may be on an entirely separate web server, but in that case it must be accessible for <a href="../../connecting-to-data/cross-origin-resource-sharing/">Cross-Origin Resource Sharing (CORS)</a>. It may also be generated by a service rather than being a simple static file. If the URL is relative, it is relative to the config file.</p>
+<h3 id="init-fragment">Init fragment</h3>
+<p>If the string does not end with <code>.json</code>, such as <code>"foo"</code>, it refers to an init file on the same web server at <code>init/foo.json</code>. In a TerriaMap directory on your computer, it can be found at <code>wwwroot/init/foo.json</code>.</p>
+<h3 id="init-fragment-paths">Init fragment paths</h3>
+<p>See <code>parameters.initFragmentPaths</code> for defining path to Init fragments (defaults to <code>init/</code>).</p>
+<p>Note: relative paths will be resolved to the base URL of client-side config URL (which defaults to <code>config.json</code> - which means the base application URL is used)</p>
+<p>For example a map hosted at http://something.com/map</p>
+<ul>
+<li>will have default <code>configUrl = http://something.com/map/config.json</code></li>
+<li>therefore will resolve <code>initFragmentPaths</code> to <code>http://something.com/map</code></li>
+<li>if using default <code>initFragmentPaths = ["init"]</code></li>
+<li>init fragments will be resolved to <code>http://something.com/map/init</code></li>
+</ul>
+<h3 id="v7initializationurls"><code>v7initializationUrls</code></h3>
+<p>It is also possible to add version 7 init files using the <code>v7initializationUrls</code> property &mdash; these will be converted on-the-fly in <code>terriajs</code> when a map is loaded. See <a href="https://github.com/TerriaJS/catalog-converter"><code>catalog-converter</code></a> repo for more information. Only v7 Init URLs are supported (v7 Init fragments are not supported).</p>
+<h2 id="parameters">Parameters</h2>
+<p><strong>The best reference for now is <a href="https://github.com/TerriaJS/terriajs/blob/main/lib/Models/Terria.ts#L101"><code>interface ConfigParameters</code></a> (you may have to search for <code>interface ConfigParameters</code> on that page to find it if future code changes change line numbers).</strong></p>
+<p>Specifies various options for configuring TerriaJS:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>appName</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td><code>"TerriaJS App"</code></td>
+<td>TerriaJS uses this name whenever it needs to display the name of the application.</td>
+</tr>
+<tr>
+<td><code>supportEmail</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td><code>"info@terria.io"</code></td>
+<td>The email address shown when things go wrong.</td>
+</tr>
+<tr>
+<td><code>defaultMaximumShownFeatureInfos</code></td>
+<td>no</td>
+<td><strong>number</strong></td>
+<td><code>100</code></td>
+<td>The maximum number of "feature info" boxes that can be displayed when clicking a point.</td>
+</tr>
+<tr>
+<td><code>regionMappingDefinitionsUrl</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td></td>
+<td><strong>Deprecated</strong> please use <code>regionMappingDefinitionsUrls</code> array instead. If this is defined, it will override <code>regionMappingDefinitionsUrls</code></td>
+</tr>
+<tr>
+<td><code>regionMappingDefinitionsUrls</code></td>
+<td>no</td>
+<td><strong>string[]</strong></td>
+<td><code>["build/TerriaJS/data/regionMapping.json"]</code></td>
+<td>URLs of JSON files that define region mapping for Tabular data (eg CSV). This option only needs to be changed in unusual deployments. It has to be changed if deploying as static site, for instance. It multiple URLs are provided then the first matching region will be used (in order of URLs)</td>
+</tr>
+<tr>
+<td><code>catalogIndexUrl</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td></td>
+<td>URL of the JSON file that contains index of catalog. See <a href="../search-providers/#catalogindex">CatalogIndex</a></td>
+</tr>
+<tr>
+<td><code>proj4ServiceBaseUrl</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td><code>"proj4def/"</code></td>
+<td>URL of Proj4 projection lookup service (part of TerriaJS-Server). This option only needs to be changed in unusual deployments. It has to be changed if deploying as static site, for instance.</td>
+</tr>
+<tr>
+<td><code>corsProxyBaseUrl</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td><code>"proxy/"</code></td>
+<td>URL of CORS proxy service (part of TerriaJS-Server). This option only needs to be changed in unusual deployments. It has to be changed if deploying as static site, for instance.</td>
+</tr>
+<tr>
+<td><code>proxyableDomainsUrl</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td><code>"proxyabledomains/"</code></td>
+<td>Deprecated, will be determined from serverconfig.</td>
+</tr>
+<tr>
+<td><code>serverConfigUrl</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td><code>"serverconfig/"</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>shareUrl</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td><code>"share"</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>feedbackUrl</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td></td>
+<td>URL of the service used to send feedback. If not specified, the "Give Feedback" button will not appear.</td>
+</tr>
+<tr>
+<td><code>initFragmentPaths</code></td>
+<td>yes</td>
+<td><strong>string[]</strong></td>
+<td><code>["init/"]</code></td>
+<td>An array of base paths to use to try to use to resolve init fragments in the URL. For example, if this property is <code>[ "init/", "http://example.com/init/"]</code>, then a URL with <code>#test</code> will first try to load <code>init/test.json</code> and, if that fails, next try to load <code>http://example.com/init/test.json</code>.</td>
+</tr>
+<tr>
+<td><code>storyEnabled</code></td>
+<td>yes</td>
+<td><strong>boolean</strong></td>
+<td><code>true</code></td>
+<td>Whether the story is enabled. If false story function button won't be available.</td>
+</tr>
+<tr>
+<td><code>interceptBrowserPrint</code></td>
+<td>no</td>
+<td><strong>boolean</strong></td>
+<td><code>true</code></td>
+<td>True (the default) to intercept the browser's print feature and use a custom one accessible through the Share panel.</td>
+</tr>
+<tr>
+<td><code>tabbedCatalog</code></td>
+<td>no</td>
+<td><strong>boolean</strong></td>
+<td><code>false</code></td>
+<td>True to create a separate explorer panel tab for each top-level catalog group to list its items in.</td>
+</tr>
+<tr>
+<td><code>useCesiumIonTerrain</code></td>
+<td>no</td>
+<td><strong>boolean</strong></td>
+<td><code>true</code></td>
+<td>True to use Cesium World Terrain from Cesium ion. False to use terrain from the URL specified with the <code>"cesiumTerrainUrl"</code> property. If this property is false and <code>"cesiumTerrainUrl"</code> is not specified, the 3D view will use a smooth ellipsoid instead of a terrain surface. Defaults to true.</td>
+</tr>
+<tr>
+<td><code>cesiumTerrainUrl</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td>undefined</td>
+<td>The URL to use for Cesium terrain in the 3D Terrain viewer, in quantized mesh format. This property is ignored if "useCesiumIonTerrain" is set to true, or if <code>cesiumTerrainAssetId</code> is present.</td>
+</tr>
+<tr>
+<td><code>cesiumTerrainAssetId</code></td>
+<td>no</td>
+<td><strong>number</strong></td>
+<td>undefined</td>
+<td>The Cesium Ion Asset ID to use for Cesium terrain in the 3D Terrain viewer. <code>cesiumIonAccessToken</code> will be used to authenticate. This property is ignored if "useCesiumIonTerrain" is set to true.</td>
+</tr>
+<tr>
+<td><code>cesiumIonAccessToken</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td>undefined</td>
+<td>The access token to use with Cesium ion. If <code>"useCesiumIonTerrain"</code> is true and this property is not specified, the Cesium default Ion key will be used. It is a violation of the Ion terms of use to use the default key in a deployed application.</td>
+</tr>
+<tr>
+<td><code>useCesiumIonBingImagery</code></td>
+<td>no</td>
+<td><strong>boolean</strong></td>
+<td><code>true</code></td>
+<td>True to use Bing Maps from Cesium ion (Cesium World Imagery). By default, Ion will be used, unless the <code>bingMapsKey</code> property is specified, in which case that will be used instead. To disable the Bing Maps layers entirely, set this property to false and set <code>bingMapsKey</code> to null.</td>
+</tr>
+<tr>
+<td><code>bingMapsKey</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td>undefined</td>
+<td>A <a href="https://msdn.microsoft.com/en-us/library/ff428642.aspx">Bing Maps API key</a> used for requesting Bing Maps base maps and using the Bing Maps geocoder for searching. It is your responsibility to request a key and comply with all terms and conditions.</td>
+</tr>
+<tr>
+<td><code>hideTerriaLogo</code></td>
+<td>no</td>
+<td><strong>boolean</strong></td>
+<td><code>false</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>brandBarElements</code></td>
+<td>no</td>
+<td><strong>string[]</strong></td>
+<td>undefined</td>
+<td>An array of strings of HTML that fill up the top left logo space (see <code>brandBarSmallElements</code> or <code>displayOneBrand</code> for small screens).</td>
+</tr>
+<tr>
+<td><code>brandBarSmallElements</code></td>
+<td>no</td>
+<td><strong>string[]</strong></td>
+<td>undefined</td>
+<td>An array of strings of HTML that fill up the top left logo space - used for small screens.</td>
+</tr>
+<tr>
+<td><code>displayOneBrand</code></td>
+<td>no</td>
+<td><strong>number</strong></td>
+<td><code>0</code></td>
+<td>Index of which <code>brandBarElements</code> to show for mobile header. This will only be used if <code>brandBarSmallElements</code> is undefined.</td>
+</tr>
+<tr>
+<td><code>disableMyLocation</code></td>
+<td>no</td>
+<td><strong>boolean</strong></td>
+<td>undefined</td>
+<td>True to disable the "Centre map at your current location" button.</td>
+</tr>
+<tr>
+<td><code>disableSplitter</code></td>
+<td>no</td>
+<td><strong>boolean</strong></td>
+<td>undefined</td>
+<td>True to disable the use of the splitter control.</td>
+</tr>
+<tr>
+<td><code>experimentalFeatures</code></td>
+<td>no</td>
+<td><strong>boolean</strong></td>
+<td>undefined</td>
+<td></td>
+</tr>
+<tr>
+<td><code>magdaReferenceHeaders</code></td>
+<td>no</td>
+<td><strong><a href="#magdareferenceheaders">MagdaReferenceHeaders</a></strong></td>
+<td>undefined</td>
+<td></td>
+</tr>
+<tr>
+<td><code>locationSearchBoundingBox</code></td>
+<td>no</td>
+<td><strong>number</strong></td>
+<td>undefined</td>
+<td></td>
+</tr>
+<tr>
+<td><code>googleAnalyticsKey</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td>undefined</td>
+<td>A Google API key for <a href="https://analytics.google.com">Google Analytics</a>. If specified, TerriaJS will send various events about how it's used to Google Analytics.</td>
+</tr>
+<tr>
+<td><code>errorService</code></td>
+<td>no</td>
+<td><strong><a href="#errorserviceoptions">ErrorServiceOptions</a></strong></td>
+<td>undefined</td>
+<td>Optional configuration for the remote error logging service that Terria should log errors to.</td>
+</tr>
+<tr>
+<td><code>globalDisclaimer</code></td>
+<td>no</td>
+<td><strong>any</strong></td>
+<td>undefined</td>
+<td></td>
+</tr>
+<tr>
+<td><code>showWelcomeMessage</code></td>
+<td>no</td>
+<td><strong>boolean</strong></td>
+<td><code>false</code></td>
+<td>True to display welcome message on startup.</td>
+</tr>
+<tr>
+<td><code>welcomeMessageVideo</code></td>
+<td>no</td>
+<td><strong>any</strong></td>
+<td></td>
+<td>Video to show in welcome message.</td>
+</tr>
+<tr>
+<td><code>showInAppGuides</code></td>
+<td>no</td>
+<td><strong>boolean</strong></td>
+<td><code>false</code></td>
+<td>True to display in-app guides.</td>
+</tr>
+<tr>
+<td><code>helpContent</code></td>
+<td>no</td>
+<td><strong><a href="#helpcontentitem">HelpContentItem</a></strong></td>
+<td><code>[]</code></td>
+<td>The content to be displayed in the help panel.</td>
+</tr>
+<tr>
+<td><code>helpContentTerms</code></td>
+<td>no</td>
+<td><strong><a href="#term">Term</a></strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>languageConfiguration</code></td>
+<td>no</td>
+<td><strong><a href="#languageconfiguration">LanguageConfiguration</a></strong></td>
+<td>undefined</td>
+<td>Language configuration of TerriaJS.</td>
+</tr>
+<tr>
+<td><code>customRequestSchedulerLimits</code></td>
+<td>no</td>
+<td><strong><a href="https://cesium.com/docs/cesiumjs-ref-doc/RequestScheduler.html#.requestsByServer">RequestScheduler</a></strong></td>
+<td>undefined</td>
+<td>Custom concurrent request limits for domains in Cesium's RequestScheduler.</td>
+</tr>
+<tr>
+<td><code>persistViewerMode</code></td>
+<td>no</td>
+<td><strong>boolean</strong></td>
+<td><code>true</code></td>
+<td>Whether to load persisted viewer mode from local storage.</td>
+</tr>
+<tr>
+<td><code>openAddData</code></td>
+<td>no</td>
+<td><strong>boolean</strong></td>
+<td><code>false</code></td>
+<td>Whether to open the add data explorer panel on load.</td>
+</tr>
+<tr>
+<td><code>feedbackPreamble</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td>feedback.feedbackPreamble</td>
+<td>Text showing at the top of feedback form, supports the internationalization using the translation key.</td>
+</tr>
+<tr>
+<td><code>feedbackPostamble</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td>feedback.feedbackPostamble</td>
+<td>Text showing at the bottom of feedback form, supports the internationalization using the translation key.</td>
+</tr>
+<tr>
+<td><code>feedbackMinLength</code></td>
+<td>no</td>
+<td><strong>number</strong></td>
+<td>0</td>
+<td>Minimum length of feedback comment.</td>
+</tr>
+<tr>
+<td><code>theme</code></td>
+<td>no</td>
+<td><strong>any</strong></td>
+<td><code>{}</code></td>
+<td>An object used to override theme properties - for example <code>{"logoHeight": "70px"}</code>.</td>
+</tr>
+<tr>
+<td><code>storyRouteUrlPrefix</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td>undefined</td>
+<td>(Experimental) Prefix to which <code>:story-id</code> is added to fetch JSON for stories when using <code>/story/:story-id</code> routes. Should end in /</td>
+</tr>
+<tr>
+<td><code>leafletAttributionPrefix</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td>undefined</td>
+<td>Attribution HTML string to show on Leaflet maps. Will use Leaflet's default if undefined. To hide Leaflet attribution - set <code>leafletAttributionPrefix:""</code></td>
+</tr>
+<tr>
+<td><code>extraCreditLinks</code></td>
+<td>no</td>
+<td><strong><a href="#credits-attribution">Credit</a></strong>[]</td>
+<td>See <a href="#credits-default-value">Credits default value</a></td>
+<td>Credits (attribution) to be shown at the bottom of the map.</td>
+</tr>
+<tr>
+<td><code>storyVideo.videoUrl</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td>https://www.youtube-nocookie.com/embed/fbiQawV8IYY</td>
+<td>Video to show in Story Editor panel under Getting Started.</td>
+</tr>
+<tr>
+<td><code>relatedMaps</code></td>
+<td>no</td>
+<td><strong><a href="#relatedmap">RelatedMap</a>[]</strong></td>
+<td>See <a href="../../lib/Models/RelatedMaps.ts"><code>lib/Models/RelatedMaps.ts</code></a></td>
+<td>Maps to show in "Related Maps" menu panel</td>
+</tr>
+<tr>
+<td><code>aboutButtonHrefUrl</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td><code>"about.html"</code></td>
+<td>About button URL. If set to <code>null</code>, then the About button will not be shown</td>
+</tr>
+<tr>
+<td><code>searchBar</code></td>
+<td>no</td>
+<td><strong><a href="#searchbar">SearchBar</a></strong></td>
+<td><code>new SearchBar()</code></td>
+<td>Search bar configuration</td>
+</tr>
+<tr>
+<td><code>searchProviders</code></td>
+<td>no</td>
+<td>**<a href="../search-providers/">SearchProviders</a></td>
+<td><code>[]</code></td>
+<td>Search providers that will be used for search</td>
+</tr>
+</tbody>
+</table>
+<h3 id="magdareferenceheaders">MagdaReferenceHeaders</h3>
+<hr />
+<h3 id="helpcontentitem">HelpContentItem</h3>
+<p>Configuration of items to appear in the search bar</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>itemName</code></td>
+<td>yes</td>
+<td><strong>string</strong></td>
+<td>undefined</td>
+<td></td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td>undefined</td>
+<td>Title of the help item</td>
+</tr>
+<tr>
+<td><code>videoUrl</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td>undefined</td>
+<td>The video to show on the top of help item.</td>
+</tr>
+<tr>
+<td><code>placeholderImage</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td>undefined</td>
+<td>Placeholder image for the video.</td>
+</tr>
+<tr>
+<td><code>paneMode</code></td>
+<td>no</td>
+<td><strong>enum["videoAndContent","slider","trainer"]</strong></td>
+<td><code>"videoAndContent"</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>trainerItems</code></td>
+<td>no</td>
+<td><strong><a href="#traineritem">TrainerItem[]</a></strong></td>
+<td>undefined</td>
+<td>List of the trainer steps</td>
+</tr>
+<tr>
+<td><code>markdownText</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td>undefined</td>
+<td>The content of the help item, can use Markdown syntax.</td>
+</tr>
+<tr>
+<td><code>icon</code></td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td>undefined</td>
+<td>Icon to show next to the itemName.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="traineritem">TrainerItem</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>yes</td>
+<td><strong>string</strong></td>
+<td></td>
+<td>Title of the trainer item.</td>
+</tr>
+<tr>
+<td>footnote</td>
+<td>yes</td>
+<td><strong>string</strong></td>
+<td></td>
+<td>Text to show below steps.</td>
+</tr>
+<tr>
+<td>steps</td>
+<td>yes</td>
+<td><strong>StepItem</strong></td>
+<td></td>
+<td>List of the steps for this trainer item.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="stepitem">StepItem</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>yes</td>
+<td><strong>string</strong></td>
+<td></td>
+<td>Title of the step.</td>
+</tr>
+<tr>
+<td>markdownDescription</td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td></td>
+<td>The content of the step item.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="term">Term</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>term</td>
+<td>yes</td>
+<td><strong>string</strong></td>
+<td></td>
+<td>Name of the term, content will be attached to it when found in text.</td>
+</tr>
+<tr>
+<td>content</td>
+<td>yes</td>
+<td><strong>string</strong></td>
+<td></td>
+<td>Description of the content.</td>
+</tr>
+<tr>
+<td>aliases</td>
+<td>no</td>
+<td><strong>string[]</strong></td>
+<td></td>
+<td>Aliases of the term.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="languageconfiguration">LanguageConfiguration</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enabled</td>
+<td>yes</td>
+<td><strong>boolean</strong></td>
+<td><code>false</code></td>
+<td>Controls whether a button to switch the portal's language is provided.</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>yes</td>
+<td><strong>boolean</strong></td>
+<td><code>false</code></td>
+<td>Controls whether debug information regarding translations is logged to the console.</td>
+</tr>
+<tr>
+<td>react</td>
+<td>yes</td>
+<td><strong>ReactOptions</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>languages</td>
+<td>yes</td>
+<td><strong>Object</strong></td>
+<td><code>{en: "english"}</code></td>
+<td>Language abbreviations. Please mind that matching locale files must exist.</td>
+</tr>
+<tr>
+<td>fallbackLanguage</td>
+<td>yes</td>
+<td><strong>string</strong></td>
+<td><code>"en"</code></td>
+<td>Fallback language used if contents are not available in the currently selected language.</td>
+</tr>
+<tr>
+<td>changeLanguageOnStartWhen</td>
+<td>yes</td>
+<td><strong>string[]</strong></td>
+<td><code>["querystring", "localStorage", "navigator", "htmlTag"]</code></td>
+<td>Order of user language detection. See <a href="https://github.com/i18next/i18next-browser-languageDetector">i18next browser language detection documentation</a> for details.</td>
+</tr>
+<tr>
+<td>lookupCookie</td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td><code>"i18next"</code></td>
+<td>Name of the cookie that handles i18n. See <a href="https://github.com/i18next/i18next-browser-languageDetector">i18next browser language detection documentation</a> for details.</td>
+</tr>
+<tr>
+<td>overridesBaseUrl</td>
+<td>yes</td>
+<td><strong>string</strong></td>
+<td></td>
+<td>Base URL for override namespace translation files. If set, this makes up the base URL for translation override files. Should end in "/". For example, if <code>overridesBaseUrl = "test/path/"</code>, then the full path for translation override files will be <code>"test/path/{{lng}}.json"</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="errorserviceoptions">ErrorServiceOptions</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>provider</td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td><code>undefined</code></td>
+<td>A string identifying the error service provider.</td>
+</tr>
+<tr>
+<td>configuration</td>
+<td>no</td>
+<td><strong>any</strong></td>
+<td><code>undefined</code></td>
+<td>The configuration object to be used when initializing an ErrorService.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-json">{
+  &quot;enabled&quot;: true,
+  &quot;debug&quot;: false,
+  &quot;react&quot;: {
+    &quot;useSuspense&quot;: false
+  },
+  &quot;languages&quot;: {
+    &quot;en&quot;: &quot;english&quot;,
+    &quot;de&quot;: &quot;deutsch&quot;
+  },
+  &quot;fallbackLanguage&quot;: &quot;en&quot;,
+  &quot;changeLanguageOnStartWhen&quot;: [
+    &quot;querystring&quot;,
+    &quot;localStorage&quot;,
+    &quot;navigator&quot;,
+    &quot;htmlTag&quot;
+  ],
+  &quot;lookupCookie&quot;: &quot;i18next&quot;
+}
+</code></pre>
+<h3 id="relatedmap">RelatedMap</h3>
+<p>Configuration of maps to appear in "Related Maps" menu panel</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td>yes</td>
+<td><strong>string</strong></td>
+<td>undefined</td>
+<td>Title of the map</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>yes</td>
+<td><strong>string</strong></td>
+<td>undefined</td>
+<td>Description for the map.</td>
+</tr>
+<tr>
+<td><code>url</code></td>
+<td>yes</td>
+<td><strong>string</strong></td>
+<td>undefined</td>
+<td>URL to map.</td>
+</tr>
+<tr>
+<td><code>imageUrl</code></td>
+<td>yes</td>
+<td><strong>nyeso</strong></td>
+<td>undefined</td>
+<td>URL to image/thumbnail (width: "200px" and height: "150px")</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="language-json">{
+  &quot;imageUrl&quot;: &quot;https://terria-catalogs-public.storage.googleapis.com/misc/related-maps/nationalmap.jpg&quot;,
+  &quot;url&quot;: &quot;http://nationalmap.gov.au/&quot;,
+  &quot;title&quot;: &quot;NationalMap&quot;,
+  &quot;description&quot;: &quot;The NationalMap is a website for map-based access to spatial data from Australian government agencies. It is an initiative of the Australian Government's Department of the Prime Minister and Cabinet and the software has been developed by Data61 working closely with the Department of the Prime Minister and Cabinet, Geoscience Australia and other government agencies.&quot;
+}
+</code></pre>
+<h3 id="credits-attribution">Credits (attribution)</h3>
+<p>Credits/Attribution shown at the bottom of the map. Supports internationalization.</p>
+<h4 id="credits-default-value">Credits default value</h4>
+<pre><code class="language-json">[
+  {
+    &quot;text&quot;: &quot;map.extraCreditLinks.dataAttribution&quot;,
+    &quot;url&quot;: &quot;https://terria.io/attributions&quot;
+  },
+  {
+    &quot;text&quot;: &quot;map.extraCreditLinks.termsOfUse&quot;,
+    &quot;url&quot;: &quot;https://terria.io/demo-terms&quot;
+  }
+]
+</code></pre>
+<hr />
+<h3 id="searchbar">SearchBar</h3>
+<p>Configuration for the search bar. Some of the values will be used as default for
+search provider values.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>placeholder</td>
+<td>no</td>
+<td><strong>string</strong></td>
+<td><code>translate#search.placeholder</code></td>
+<td>Input text field placeholder shown when no input has been given yet. The string is translateable.</td>
+</tr>
+<tr>
+<td>recommendedListLength</td>
+<td>no</td>
+<td><strong>number</strong></td>
+<td><code>5</code></td>
+<td>Maximum amount of entries in the suggestion list.</td>
+</tr>
+<tr>
+<td>flightDurationSeconds</td>
+<td>no</td>
+<td><strong>number</strong></td>
+<td><code>1.5</code></td>
+<td>The duration of the camera flight to an entered location, in seconds.</td>
+</tr>
+<tr>
+<td>minCharacters</td>
+<td>no</td>
+<td><strong>number</strong></td>
+<td>3</td>
+<td>Minimum number of characters required for search to start</td>
+</tr>
+<tr>
+<td>boundingBoxLimit</td>
+<td>no</td>
+<td><strong>Rectangle</strong></td>
+<td><code>Cesium.Rectangle.MAX_VALUE</code></td>
+<td>Bounding box limits for the search results {west, south, east, north}</td>
+</tr>
+<tr>
+<td>showSearchInCatalog</td>
+<td>no</td>
+<td><strong>boolean</strong></td>
+<td>true</td>
+<td>True to show "Search in Catalog" link in location search results.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../js/rewrite-links.js"></script>
+      
+    
+  </body>
+</html>

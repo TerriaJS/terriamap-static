@@ -1,0 +1,276 @@
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/terriajs-typings-for-css-modules-loader/src/index.js!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[12].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[12].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[12].use[4]!./packages/terriajs/lib/ReactViews/ExplorerWindow/Tabs/MyDataTab/cesium-ion-connector.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css?family=Inter:300,400,500,400italic,600,700&display=swap);
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/terriajs-typings-for-css-modules-loader/src/index.js!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[12].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[12].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[12].use[4]!./packages/terriajs/lib/ReactViews/Custom/Chart/chart-preview.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css?family=Inter:300,400,500,400italic,600,700&display=swap);
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/terriajs-typings-for-css-modules-loader/src/index.js!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[12].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[12].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[12].use[4]!./packages/terriajs/lib/ReactViews/Custom/Chart/chart-expand-and-download-buttons.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css?family=Inter:300,400,500,400italic,600,700&display=swap);
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/terriajs-typings-for-css-modules-loader/src/index.js!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[12].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[12].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[12].use[4]!./packages/terriajs/lib/ReactViews/ExplorerWindow/Tabs/MyDataTab/cesium-ion-connector.scss (1) ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Wrapper around TerriaJS variables allowing us to easy override them from TerriaMap. 
+ * For the default values of variables check ./_default_variables.scss
+ */
+/**
+ * Default variables for TerriaJS styles.
+ *
+ * These variables are default theme values used throughout TerriaJS.
+ * All variables use the !default flag to allow for overriding.
+ *
+ * USING VARIABLES:
+ * These variables are made available to the rest of codebase as webpack `terriajs-variables`
+ * alias, and can be used by importing the ./_variables.scss file (i.e. `@use "../Sass/common/_variables";`)
+ *
+ * OVERRIDING VARIABLES:
+ * To override variables values in your application:
+ * 1. Create a custom variables file in your app
+ * 2. Configure the `terriajs-variables` webpack alias to point to your custom variables file
+ * 3. In your custom variables file, override specific variables values using the `@use ... with` syntax
+ *
+ * For a complete example, see the `variables.scss` file in the TerriaMap repository.
+ */
+/**
+// To customise the look of your map, uncomment and change values here (remove line above after uncommenting) and in lib/Views/global.scss
+
+@forward "~terriajs/lib/Sass/common/_default_variables.scss" with ( 
+    // If your logo is big, set this to give it more room.
+    //$logo-height: 120px;
+
+    // If using a non-standard font, remember to include an @import statement in global.scss
+    $font-base: 'Josefin Sans', sans-serif;
+    $font-pop: $font-base; // If you just want to use one font throughout, do this.
+
+    // These variables are for buttons and text.
+    // "color-secondary" should be a lighter color than "color-primary" but still readable contrasted with white.
+    $color-primary: maroon;
+    $color-secondary: hsl(60,80%,60%); // or: lighten($color-primary, 20%);
+
+    // These variables set background panel colors
+    $dark: hsl(0,30%,30%);
+    $dark-with-overlay: hsl(0,30%,30%);;
+    $dark-lighter: hsl(0,30%,50%);
+
+    // You might find it helpful to define these and use them.
+    $color-primary-light:lighten($color-primary,10%);
+    $color-primary-dark:darken($color-primary,10%);
+    $dark-darker: hsl(0,30%,15%);
+);
+*/
+/* Mixin */
+.tjs-cesium-ion-connector__connect-button {
+  width: 200px;
+}
+
+.tjs-cesium-ion-connector__token-warning {
+  color: #ff5b6f;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9em;
+}
+
+.tjs-cesium-ion-connector__token-warning-hidden {
+  visibility: hidden;
+}
+
+.tjs-cesium-ion-connector__drop-down {
+  height: 40px;
+}
+
+.tjs-cesium-ion-connector__drop-down-button {
+  height: 100%;
+}
+
+.tjs-cesium-ion-connector__assets-list {
+  overflow-y: auto;
+}
+
+.tjs-cesium-ion-connector__add-asset-button {
+  vertical-align: middle;
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/terriajs-typings-for-css-modules-loader/src/index.js!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[12].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[12].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[12].use[4]!./packages/terriajs/lib/ReactViews/Custom/Chart/chart-preview.scss (1) ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Wrapper around TerriaJS variables allowing us to easy override them from TerriaMap. 
+ * For the default values of variables check ./_default_variables.scss
+ */
+/**
+ * Default variables for TerriaJS styles.
+ *
+ * These variables are default theme values used throughout TerriaJS.
+ * All variables use the !default flag to allow for overriding.
+ *
+ * USING VARIABLES:
+ * These variables are made available to the rest of codebase as webpack `terriajs-variables`
+ * alias, and can be used by importing the ./_variables.scss file (i.e. `@use "../Sass/common/_variables";`)
+ *
+ * OVERRIDING VARIABLES:
+ * To override variables values in your application:
+ * 1. Create a custom variables file in your app
+ * 2. Configure the `terriajs-variables` webpack alias to point to your custom variables file
+ * 3. In your custom variables file, override specific variables values using the `@use ... with` syntax
+ *
+ * For a complete example, see the `variables.scss` file in the TerriaMap repository.
+ */
+/**
+// To customise the look of your map, uncomment and change values here (remove line above after uncommenting) and in lib/Views/global.scss
+
+@forward "~terriajs/lib/Sass/common/_default_variables.scss" with ( 
+    // If your logo is big, set this to give it more room.
+    //$logo-height: 120px;
+
+    // If using a non-standard font, remember to include an @import statement in global.scss
+    $font-base: 'Josefin Sans', sans-serif;
+    $font-pop: $font-base; // If you just want to use one font throughout, do this.
+
+    // These variables are for buttons and text.
+    // "color-secondary" should be a lighter color than "color-primary" but still readable contrasted with white.
+    $color-primary: maroon;
+    $color-secondary: hsl(60,80%,60%); // or: lighten($color-primary, 20%);
+
+    // These variables set background panel colors
+    $dark: hsl(0,30%,30%);
+    $dark-with-overlay: hsl(0,30%,30%);;
+    $dark-lighter: hsl(0,30%,50%);
+
+    // You might find it helpful to define these and use them.
+    $color-primary-light:lighten($color-primary,10%);
+    $color-primary-dark:darken($color-primary,10%);
+    $dark-darker: hsl(0,30%,15%);
+);
+*/
+/* Mixin */
+.tjs-chart-preview__chart-td {
+  background: rgba(17, 24, 39, 0.95);
+}
+
+.tjs-chart-preview__preview-chart-wrapper {
+  position: relative;
+  padding: 0;
+  min-height: 110px;
+}
+.tjs-chart-preview__preview-chart-wrapper .line-chart text {
+  fill: #ffffff;
+}
+.tjs-chart-preview__preview-chart-wrapper .units-label-shadow {
+  stroke: rgba(17, 24, 39, 0.95);
+  stroke-width: 2.5px;
+  opacity: 0.9;
+}
+.tjs-chart-preview__preview-chart-wrapper .line-chart .line {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1;
+}
+.tjs-chart-preview__preview-chart-wrapper .tjs-chart-preview__preview-chart {
+  padding-top: 1em;
+}
+
+.tjs-chart-preview__chart-title-from-table {
+  line-height: 2;
+  padding: 0 10px;
+}
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/terriajs-typings-for-css-modules-loader/src/index.js!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[12].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[12].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[12].use[4]!./packages/terriajs/lib/ReactViews/Custom/Chart/chart-expand-and-download-buttons.scss (1) ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Wrapper around TerriaJS variables allowing us to easy override them from TerriaMap. 
+ * For the default values of variables check ./_default_variables.scss
+ */
+/**
+ * Default variables for TerriaJS styles.
+ *
+ * These variables are default theme values used throughout TerriaJS.
+ * All variables use the !default flag to allow for overriding.
+ *
+ * USING VARIABLES:
+ * These variables are made available to the rest of codebase as webpack `terriajs-variables`
+ * alias, and can be used by importing the ./_variables.scss file (i.e. `@use "../Sass/common/_variables";`)
+ *
+ * OVERRIDING VARIABLES:
+ * To override variables values in your application:
+ * 1. Create a custom variables file in your app
+ * 2. Configure the `terriajs-variables` webpack alias to point to your custom variables file
+ * 3. In your custom variables file, override specific variables values using the `@use ... with` syntax
+ *
+ * For a complete example, see the `variables.scss` file in the TerriaMap repository.
+ */
+/**
+// To customise the look of your map, uncomment and change values here (remove line above after uncommenting) and in lib/Views/global.scss
+
+@forward "~terriajs/lib/Sass/common/_default_variables.scss" with ( 
+    // If your logo is big, set this to give it more room.
+    //$logo-height: 120px;
+
+    // If using a non-standard font, remember to include an @import statement in global.scss
+    $font-base: 'Josefin Sans', sans-serif;
+    $font-pop: $font-base; // If you just want to use one font throughout, do this.
+
+    // These variables are for buttons and text.
+    // "color-secondary" should be a lighter color than "color-primary" but still readable contrasted with white.
+    $color-primary: maroon;
+    $color-secondary: hsl(60,80%,60%); // or: lighten($color-primary, 20%);
+
+    // These variables set background panel colors
+    $dark: hsl(0,30%,30%);
+    $dark-with-overlay: hsl(0,30%,30%);;
+    $dark-lighter: hsl(0,30%,50%);
+
+    // You might find it helpful to define these and use them.
+    $color-primary-light:lighten($color-primary,10%);
+    $color-primary-dark:darken($color-primary,10%);
+    $dark-darker: hsl(0,30%,15%);
+);
+*/
+/* Mixin */
+.tjs-chart-expand-and-download-buttons__dropdown {
+  float: left;
+}
+.tjs-chart-expand-and-download-buttons__dropdown__list {
+  display: flex;
+  flex-direction: column;
+}
+.tjs-chart-expand-and-download-buttons__dropdown__btn {
+}
+.tjs-chart-expand-and-download-buttons__dropdown__btn--option {
+  width: 100%;
+  float: left;
+  color: #35a7c4;
+}
+.tjs-chart-expand-and-download-buttons__dropdown__btn--option:hover, .tjs-chart-expand-and-download-buttons__dropdown__btn--option:focus {
+  background: #35a7c4;
+  color: orange;
+  text-decoration: none;
+}
+
+.tjs-chart-expand-and-download-buttons__btn--dropdown {
+  z-index: 999;
+  color: white;
+  font-family: "Inter", sans-serif;
+  border: none;
+  padding: 1px 8px;
+  margin-right: 3px;
+  width: auto;
+}
+
+.tjs-chart-expand-and-download-buttons__btn-small {
+}
+
+.tjs-chart-expand-and-download-buttons__btn-download {
+  text-align: center;
+  padding: 4px 3px;
+  margin-left: 3px;
+  vertical-align: top;
+}
+.tjs-chart-expand-and-download-buttons__btn-download svg {
+  height: 20px;
+  width: 20px;
+}
+.tjs-chart-expand-and-download-buttons__btn-download:hover, .tjs-chart-expand-and-download-buttons__btn-download:focus {
+  text-decoration: none;
+}

@@ -1,0 +1,3350 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../traits-in-depth/">
+      
+      
+        <link rel="next" href="../init-sources/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Strata Examples - TerriaJS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#strata-examples" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="TerriaJS" class="md-header__button md-logo" aria-label="TerriaJS" data-md-component="logo">
+      
+  <img src="../../terria.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TerriaJS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Strata Examples
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TerriaJS" class="md-nav__button md-logo" aria-label="TerriaJS" data-md-component="logo">
+      
+  <img src="../../terria.png" alt="logo">
+
+    </a>
+    TerriaJS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Customizing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Customizing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customizing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customizing/client-side-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Client-side Config
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customizing/initialization-files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Initialization Files
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customizing/server-side-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Server-side Config
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customizing/cloning-and-building/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloning and Building
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customizing/skinning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Skinning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customizing/translation-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Translation guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customizing/search-providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Search Providers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Connecting to Data
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Connecting to Data
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/cross-origin-resource-sharing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cross-Origin Resource Sharing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Catalog Groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-items/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Catalog Items
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/item-search/indexed-item-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Item Search
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Customizing Data Appearance
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            Customizing Data Appearance
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/customizing-data-appearance/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/customizing-data-appearance/imagery-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Imagery Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/customizing-data-appearance/tabular-vector-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tabular and Vector Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/customizing-data-appearance/feature-info-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Feature Information Template
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/customizing-data-appearance/model-dimensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model Dimensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Catalog Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Catalog References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Catalog Type Details
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            Catalog Type Details
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/api-table/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ApiTableCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/esri-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/esri-featureServer-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisFeatureServerCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/esri-featureServer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisFeatureServerCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/esri-imageServer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisImageServerCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/esri-mapServer-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisMapServerCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/esri-mapServer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisMapServerCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/arcgis-portal-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisPortalCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/arcgis-portal-item/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisPortalItemReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/arcgis-terrain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisTerrainCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/assimp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AssImpCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/bing-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BingMapsCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/carto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CartoMapV1CatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/carto-v3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CartoMapV3CatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/catalog-index-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CatalogIndexReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/3d-tiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cesium3DTilesCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/cesium-terrain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CesiumTerrainCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/ckan-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CkanCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/ckan-item/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CkanItemReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/cog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CogCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/composite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CompositeCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/csv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CsvCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/csw-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CswCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/czml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CzmlCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/geojson/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GeoJsonCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/georss/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GeoRssCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/gltf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GltfCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/gpx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GpxCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/gtfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GtfsCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/i3s/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    I3SCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/ion-imagery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IonImageryCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/kml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KmlCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/magda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MagdaReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/mapbox-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MapboxMapCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/mapbox-style/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MapboxStyleCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/mvt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MapboxVectorTileCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/opendatasoft-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenDataSoftCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/opendatasoft-item/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenDataSoftCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/open-street-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenStreetMapCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/sdmx-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SdmxCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/sdmx-json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SdmxJsonCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/senaps-locations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SenapsLocationsCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/sos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SensorObservationServiceCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/shp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShapefileCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/socrata-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SocrataCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/socrata-map-item/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SocrataMapViewCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/split-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SplitItemReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/stub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    StubCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/terria-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TerriaReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/thredds-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ThreddsCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/tms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TileMapServiceCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/url-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UrlReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/url-template-imagery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UrlTemplateImageryCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/wfs-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebFeatureServiceCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/wfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebFeatureServiceCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/wms-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebMapServiceCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/wms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebMapServiceCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/wmts-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebMapTileServiceCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/wmts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebMapTileServiceCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/wps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebProcessingServiceCatalogFunction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/wps-result/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebProcessingServiceCatalogFunctionJob
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/wps-getCapabilities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebProcessingServiceCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/ydyr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    YDYRCatalogFunction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connecting-to-data/catalog-type-details/ydyr-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    YDYRCatalogFunctionJob
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deploying
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Deploying
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying/deploying-terriamap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploying TerriaMap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying/deploying-with-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploying with Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying/setting-up-a-region-mapping-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setting Up a Region Mapping Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying/setting-up-geoserver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setting Up Geoserver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying/using-as-a-ckan-previewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using as a CKAN Previewer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying/controlling-with-url-parameters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Controlling with URL Parameters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying/controlling-in-an-iframe-or-popup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Controlling in an &lt;iframe&gt; or Popup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Contributing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development Environment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-a-custom-version-of-cesium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using a Custom Version of Cesium
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problems-and-solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Problems and Solutions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model-layer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    New model layer documentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../traits-in-depth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Traits in depth
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Strata Examples
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Strata Examples
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#magdareference-which-resolves-to-wms-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      MagdaReference which resolves to WMS item
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MagdaReference which resolves to WMS item">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-magda-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Magda record
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defaults-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defaults default
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defaults-magda-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defaults magda-record
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loadable-getcapabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loadable getCapabilities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definition-underride" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definition underride
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definition-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definition definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolved-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resolved model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../init-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Init sources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend-style-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Frontend style guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migration-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Version 8 migration guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../translation-guide-dev/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development translation guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Acknowledgements
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Acknowledgements
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acknowledgements/attributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Attributions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#magdareference-which-resolves-to-wms-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      MagdaReference which resolves to WMS item
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MagdaReference which resolves to WMS item">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-magda-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Magda record
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defaults-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defaults default
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defaults-magda-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defaults magda-record
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loadable-getcapabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loadable getCapabilities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definition-underride" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definition underride
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definition-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definition definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolved-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resolved model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="strata-examples">Strata Examples</h1>
+<h2 id="magdareference-which-resolves-to-wms-item"><code>MagdaReference</code> which resolves to WMS item</h2>
+<p><strong>Bold</strong> items are not <code>CommonStrata</code></p>
+<ul>
+<li>Defaults</li>
+<li><code>default</code></li>
+<li><strong><code>magda-record</code></strong></li>
+<li>Loadable</li>
+<li><strong><code>getCapabilities</code></strong></li>
+<li>Definition</li>
+<li><code>underride</code></li>
+<li><code>definition</code></li>
+<li><code>override</code></li>
+<li>User</li>
+<li><code>user</code></li>
+</ul>
+<h3 id="example-magda-record">Example Magda record</h3>
+<pre><code class="language-json">{
+  &quot;aspects&quot;: {
+    &quot;terria&quot;: {
+      &quot;definition&quot;: {
+        &quot;url&quot;: &quot;some-wms-server.com/layer&quot;
+      },
+      &quot;underride&quot;: {
+        &quot;name&quot;: &quot;A WMS layer name that has been updated by Magda Minion&quot;
+      },
+      &quot;id&quot;: &quot;wms-layer-id&quot;,
+      &quot;type&quot;: &quot;wms&quot;
+    }
+  },
+  &quot;id&quot;: &quot;wms-layer-id&quot;,
+  &quot;name&quot;: &quot;WMS layer name in Magda&quot;
+}
+</code></pre>
+<h3 id="defaults-default">Defaults <code>default</code></h3>
+<p>Will contain values in <code>Trait</code> definitions. It may also contain values copied from the Magda record's Terria aspect (property) - if <code>default</code> stratum has been defined</p>
+<h3 id="defaults-magda-record">Defaults <code>magda-record</code></h3>
+<p>Will contain <code>name</code> property defined in the Magda record. In provided example <code>"name": "WMS layer name in Magda"</code></p>
+<h3 id="loadable-getcapabilities">Loadable <code>getCapabilities</code></h3>
+<p>Will contain properties loaded from WMS <code>GetCapabilities</code> request. For example:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;A WMS layer name provided by WMS GetCapabilities&quot;
+}
+</code></pre>
+<h3 id="definition-underride">Definition <code>underride</code></h3>
+<p>This my contain values copied from the Magda record's Terria aspect (property) - if <code>underride</code> stratum has been defined.</p>
+<p>In provided example, this would be:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;A WMS layer name that has been updated by Magda Minion&quot;
+}
+</code></pre>
+<h3 id="definition-definition">Definition <code>definition</code></h3>
+<p>This will contain values copied from the Magda record's Terria aspect (property).</p>
+<p>In provided example, this would be:</p>
+<pre><code class="language-json">{
+  &quot;url&quot;: &quot;some-wms-server.com/layer&quot;
+}
+</code></pre>
+<h3 id="resolved-model">Resolved model</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;A WMS layer name that has been updated by Magda Minion&quot;,
+  &quot;url&quot;: &quot;some-wms-server.com/layer&quot;
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../js/rewrite-links.js"></script>
+      
+    
+  </body>
+</html>

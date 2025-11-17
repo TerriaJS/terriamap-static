@@ -1,0 +1,4669 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../imagery-data/">
+      
+      
+        <link rel="next" href="../feature-info-template/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Tabular and Vector Data - TerriaJS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2afb09e1.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vector-data" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="TerriaJS" class="md-header__button md-logo" aria-label="TerriaJS" data-md-component="logo">
+      
+  <img src="../../../terria.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TerriaJS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tabular and Vector Data
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="TerriaJS" class="md-nav__button md-logo" aria-label="TerriaJS" data-md-component="logo">
+      
+  <img src="../../../terria.png" alt="logo">
+
+    </a>
+    TerriaJS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Customizing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Customizing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../customizing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../customizing/client-side-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Client-side Config
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../customizing/initialization-files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Initialization Files
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../customizing/server-side-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Server-side Config
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../customizing/cloning-and-building/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloning and Building
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../customizing/skinning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Skinning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../customizing/translation-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Translation guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../customizing/search-providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Search Providers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Connecting to Data
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Connecting to Data
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cross-origin-resource-sharing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cross-Origin Resource Sharing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Catalog Groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-items/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Catalog Items
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../item-search/indexed-item-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Item Search
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Customizing Data Appearance
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            Customizing Data Appearance
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imagery-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Imagery Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Tabular and Vector Data
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tabular and Vector Data
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#style-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Style Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Style Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-start-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Start Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-style-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Style Definitions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlling-data-appearance-in-the-workbench" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controlling data appearance in the workbench
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Controlling data appearance in the workbench">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activestyle" class="md-nav__link">
+    <span class="md-ellipsis">
+      activeStyle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      columns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specifying-default-column-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specifying default column settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#styling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Styling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coloring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coloring
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Coloring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constant-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constant color
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constant color">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuous-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous color
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Continuous color">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-options_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enum color
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enum color">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-options_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-palette" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color palette
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-binning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color binning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Color binning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-options_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-palette_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color palette
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Points
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Points">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#point-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      Point style
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Point style">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-point-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default point style
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-point-styling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enum point styling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bin-point-styling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bin point styling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#point-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      Point size
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outline-styling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outline styling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outline styling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-outline-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default outline style
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-styling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enum styling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bin-styling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bin styling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bin styling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-example_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Labels
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#legend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Legend
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Legend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manipulating-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manipulating time
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manipulating time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timecolumn" class="md-nav__link">
+    <span class="md-ellipsis">
+      timeColumn
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endtimecolumn" class="md-nav__link">
+    <span class="md-ellipsis">
+      endTimeColumn
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idcolumns" class="md-nav__link">
+    <span class="md-ellipsis">
+      idColumns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trail-styling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trail Styling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trail Styling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-options_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Resources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feature-info-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Feature Information Template
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model-dimensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model Dimensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Catalog Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Catalog References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Catalog Type Details
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            Catalog Type Details
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/api-table/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ApiTableCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/esri-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/esri-featureServer-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisFeatureServerCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/esri-featureServer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisFeatureServerCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/esri-imageServer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisImageServerCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/esri-mapServer-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisMapServerCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/esri-mapServer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisMapServerCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/arcgis-portal-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisPortalCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/arcgis-portal-item/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisPortalItemReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/arcgis-terrain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArcGisTerrainCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/assimp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AssImpCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/bing-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BingMapsCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/carto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CartoMapV1CatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/carto-v3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CartoMapV3CatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/catalog-index-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CatalogIndexReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/3d-tiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cesium3DTilesCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/cesium-terrain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CesiumTerrainCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/ckan-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CkanCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/ckan-item/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CkanItemReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/cog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CogCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/composite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CompositeCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/csv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CsvCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/csw-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CswCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/czml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CzmlCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/geojson/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GeoJsonCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/georss/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GeoRssCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/gltf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GltfCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/gpx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GpxCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/gtfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GtfsCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/i3s/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    I3SCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/ion-imagery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IonImageryCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/kml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KmlCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/magda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MagdaReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/mapbox-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MapboxMapCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/mapbox-style/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MapboxStyleCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/mvt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MapboxVectorTileCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/opendatasoft-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenDataSoftCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/opendatasoft-item/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenDataSoftCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/open-street-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenStreetMapCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/sdmx-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SdmxCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/sdmx-json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SdmxJsonCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/senaps-locations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SenapsLocationsCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/sos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SensorObservationServiceCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/shp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ShapefileCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/socrata-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SocrataCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/socrata-map-item/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SocrataMapViewCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/split-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SplitItemReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/stub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    StubCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/terria-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TerriaReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/thredds-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ThreddsCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/tms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TileMapServiceCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/url-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UrlReference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/url-template-imagery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UrlTemplateImageryCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/wfs-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebFeatureServiceCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/wfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebFeatureServiceCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/wms-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebMapServiceCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/wms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebMapServiceCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/wmts-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebMapTileServiceCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/wmts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebMapTileServiceCatalogItem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/wps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebProcessingServiceCatalogFunction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/wps-result/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebProcessingServiceCatalogFunctionJob
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/wps-getCapabilities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebProcessingServiceCatalogGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/ydyr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    YDYRCatalogFunction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog-type-details/ydyr-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    YDYRCatalogFunctionJob
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deploying
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Deploying
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deploying/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deploying/deploying-terriamap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploying TerriaMap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deploying/deploying-with-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploying with Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deploying/setting-up-a-region-mapping-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setting Up a Region Mapping Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deploying/setting-up-geoserver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setting Up Geoserver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deploying/using-as-a-ckan-previewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using as a CKAN Previewer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deploying/controlling-with-url-parameters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Controlling with URL Parameters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deploying/controlling-in-an-iframe-or-popup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Controlling in an &lt;iframe&gt; or Popup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Contributing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/development-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development Environment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/using-a-custom-version-of-cesium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using a Custom Version of Cesium
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/problems-and-solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Problems and Solutions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/model-layer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    New model layer documentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/traits-in-depth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Traits in depth
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/strata-examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Strata Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/init-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Init sources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/frontend-style-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Frontend style guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/migration-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Version 8 migration guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/translation-guide-dev/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development translation guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Acknowledgements
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Acknowledgements
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../acknowledgements/attributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Attributions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#style-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Style Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Style Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-start-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Start Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-style-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Style Definitions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlling-data-appearance-in-the-workbench" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controlling data appearance in the workbench
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Controlling data appearance in the workbench">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activestyle" class="md-nav__link">
+    <span class="md-ellipsis">
+      activeStyle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      columns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specifying-default-column-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specifying default column settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#styling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Styling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coloring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coloring
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Coloring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constant-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constant color
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constant color">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuous-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous color
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Continuous color">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-options_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enum color
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enum color">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-options_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-palette" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color palette
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-binning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color binning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Color binning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-options_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-palette_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color palette
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Points
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Points">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#point-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      Point style
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Point style">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-point-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default point style
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-point-styling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enum point styling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bin-point-styling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bin point styling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#point-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      Point size
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outline-styling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outline styling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outline styling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-outline-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default outline style
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-styling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enum styling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bin-styling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bin styling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bin styling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-example_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Labels
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#legend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Legend
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Legend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manipulating-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manipulating time
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manipulating time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timecolumn" class="md-nav__link">
+    <span class="md-ellipsis">
+      timeColumn
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endtimecolumn" class="md-nav__link">
+    <span class="md-ellipsis">
+      endTimeColumn
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idcolumns" class="md-nav__link">
+    <span class="md-ellipsis">
+      idColumns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trail-styling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trail Styling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trail Styling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-options_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Resources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="vector-data">Vector Data</h1>
+<h2 id="overview">Overview</h2>
+<p>When you drag and drop a CSV file onto the map, TerriaJS selects some display defaults for you, including the size of the points, the color scale, how to cluster values in the legend, and more.</p>
+<p>You can take control of these settings by writing a styling definition for the initialization file.</p>
+<h2 id="style-configuration">Style Configuration</h2>
+<h3 id="quick-start-example">Quick Start Example</h3>
+<p>Let's start with an example. Save this snippet as <code>example.json</code> and drag it onto the map:</p>
+<pre><code class="language-json">{
+  &quot;catalog&quot;: [
+    {
+      &quot;name&quot;: &quot;Australian postcodes&quot;,
+      &quot;type&quot;: &quot;csv&quot;,
+      &quot;url&quot;: &quot;https://tiles.terria.io/static/auspost-locations.csv&quot;
+    }
+  ]
+}
+</code></pre>
+<p>At first, it may seem as if nothing has happened. This is because JSON files instruct Terria to update the catalog rather than directly add data to the map. Head to the Data Catalog, and find the data item called "Australian postcodes". Add it to the map.</p>
+<p>You will see numerous points across Australia styled with a color palette automatically chosen by Terria.
+<img alt="Default view of data after adding to map" src="../img/default-data-view.png" /></p>
+<h3 id="creating-style-definitions">Creating Style Definitions</h3>
+<p>The simplest way to create a new style definition is to:</p>
+<ol>
+<li>Open the item dropdown menu and select "Edit style"</li>
+</ol>
+<p><img alt="Edit style" src="../img/edit-style.png" /></p>
+<ol>
+<li>Make your styling changes in the style editing side panel</li>
+</ol>
+<p><img alt="Styling side panel" src="../img/styling-side-panel.png" /></p>
+<ol>
+<li>Access advanced styling options:</li>
+<li>Click the kebab menu (⋮) next to the layer name</li>
+<li>Choose "Show advanced options"</li>
+<li>Click the kebab menu again and select "Copy user stratum to clipboard"</li>
+</ol>
+<p>You will get something similar to:</p>
+<pre><code class="language-json">{
+  &quot;url&quot;: &quot;https://tiles.terria.io/static/auspost-locations.csv&quot;,
+  &quot;name&quot;: &quot;Australian postcodes&quot;,
+  &quot;styles&quot;: [
+    {
+      &quot;id&quot;: &quot;Description&quot;,
+      &quot;color&quot;: { &quot;colorPalette&quot;: &quot;HighContrast&quot; },
+      &quot;hidden&quot;: false
+    }
+  ],
+  &quot;activeStyle&quot;: &quot;Description&quot;
+}
+</code></pre>
+<p>In the example above, the ID in the <code>styles</code> array usually represents the column name, and the <code>activeStyle</code> is the ID of the currently active style. You can now combine this with the layer definition in your initialization file, and the layer will be styled as you defined it whenever a user adds a dataset to the map.
+Let's delve further into the available options.</p>
+<h2 id="controlling-data-appearance-in-the-workbench">Controlling data appearance in the workbench</h2>
+<h3 id="activestyle">activeStyle</h3>
+<p>If you want the dataset to start with a different column selected, use <code>activeStyle</code>:</p>
+<pre><code class="language-json">  &quot;activeStyle&quot;: &quot;id-of-style&quot;
+</code></pre>
+<h3 id="columns">columns</h3>
+<p>If you want to change the appearance of individual columns, use the catalog items's <a href="https://docs.terria.io/guide/connecting-to-data/catalog-type-details/geojson/#tablecolumntraits"><code>columns</code> trait</a>, eg:</p>
+<pre><code class="language-json">&quot;columns&quot;: [
+  {
+    &quot;name&quot;: &quot;original name&quot;,
+    &quot;title&quot;: &quot;better name&quot;,
+    &quot;format&quot;: {
+      &quot;maximumFractionDigits&quot;: 0
+    }
+  },
+  {
+    &quot;name&quot;: &quot;bad&quot;,
+    &quot;type&quot;: &quot;hidden&quot;
+  }
+]
+</code></pre>
+<p>This example shows a few possibilities:</p>
+<ul>
+<li>A column called "original name" is displayed with the name "better name".</li>
+<li>The legend for that column is shown without any decimal places (i.e. <code>maximumFractionDigits</code> set to 0).</li>
+<li>A column in the original data called "bad" is hidden from the workbench.</li>
+</ul>
+<h3 id="specifying-default-column-settings">Specifying default column settings</h3>
+<p>It is also possible to specify default column settings that will be reused for all columns/properties. For example:</p>
+<pre><code class="language-json">&quot;defaultColumn&quot;: {
+  &quot;replaceWithNullValues&quot;: [&quot;NA&quot;],
+  &quot;replaceWithZeroValues&quot;: [&quot;-&quot;]
+}
+</code></pre>
+<h3 id="configuration-options">Configuration options</h3>
+<p>The complete list of available configuration options can be found in the catalog item documentation. For details, see https://docs.terria.io/guide/connecting-to-data/catalog-type-details/geojson/#tablecolumntraits.</p>
+<h2 id="styling">Styling</h2>
+<p>Styling can be defined for each column or as a default style for all columns/properties. To define the default style, specify the <code>defaultStyle</code> trait, with the style definition as the value. To define a style for a specific column, specify the <code>styles</code> trait as an array of objects and, within it, define the <code>id</code> as the <code>column/property</code> name. When applying the style definition, TerriaJS uses the property values to apply the appropriate variant of style. For a list of all available options, check <a href="https://docs.terria.io/guide/connecting-to-data/catalog-type-details/geojson/#tablestyletraits">table style traits</a>.</p>
+<h2 id="coloring">Coloring</h2>
+<p>Use the following settings to adjust how data is colored.</p>
+<p>TerriaJS supports these map style types:</p>
+<ul>
+<li>Constant color,</li>
+<li>Continuous color,</li>
+<li>Enum color, and</li>
+<li>Color binning</li>
+</ul>
+<h3 id="constant-color">Constant color</h3>
+<p>The constant color applies a single, fixed color to all features, regardless of their attributes. This is useful when you want to display features uniformly or highlight a specific dataset.</p>
+<h4 id="basic-example">Basic example</h4>
+<pre><code class="language-json">{
+  &quot;color&quot;: {
+    &quot;mapType&quot;: &quot;constant&quot;,
+    &quot;nullColor&quot;: &quot;rgba(221,16,16,1)&quot;
+  }
+}
+</code></pre>
+<h3 id="continuous-color">Continuous color</h3>
+<p>Continuous color mapping creates a smooth gradient between colors based on numeric values. It is ideal for visualizing data that changes gradually, such as temperature, elevation, or density measurements.</p>
+<h4 id="basic-example_1">Basic Example</h4>
+<pre><code class="language-json">{
+  &quot;color&quot;: {
+    &quot;mapType&quot;: &quot;continuous&quot;,
+    &quot;colorColumn&quot;: &quot;temperature&quot;,
+    &quot;minimumValue&quot;: 0,
+    &quot;maximumValue&quot;: 100,
+    &quot;colorPalette&quot;: &quot;Viridis&quot;
+  }
+}
+</code></pre>
+<p><strong>Advanced Configuration</strong></p>
+<pre><code class="language-json">{
+  &quot;color&quot;: {
+    &quot;mapType&quot;: &quot;continuous&quot;,
+    &quot;colorColumn&quot;: &quot;elevation&quot;,
+    &quot;minimumValue&quot;: -100,
+    &quot;maximumValue&quot;: 1000,
+    &quot;colorPalette&quot;: &quot;RdYlBu&quot;,
+    &quot;nullColor&quot;: &quot;#cccccc&quot;,
+    &quot;nullLabel&quot;: &quot;No Data&quot;,
+    &quot;outlierColor&quot;: &quot;#ff0000&quot;,
+    &quot;outlierLabel&quot;: &quot;Out of Range&quot;,
+    &quot;legendTicks&quot;: 7
+  }
+}
+</code></pre>
+<h4 id="configuration-options_1">Configuration options</h4>
+<ul>
+<li><code>mapType</code>: Set to <code>"continuous"</code></li>
+<li><code>colorColumn</code>: Numeric column to map</li>
+<li><code>minimumValue/maximumValue</code>: Range bounds</li>
+<li><code>colorPalette</code>: Color gradient scheme</li>
+<li><code>nullColor/nullLabel</code>: Handling missing data</li>
+<li><code>outlierColor/outlierLabel</code>: Values outside range</li>
+<li><code>legendTicks</code>: Number of tick marks to show in the legend</li>
+</ul>
+<h3 id="enum-color">Enum color</h3>
+<p>Enum color mapping assigns specific colors to categorical (enumerated) values in your data. It is useful for visualizing discrete categories such as land use types, administrative regions, or classification groups.</p>
+<h4 id="basic-example_2">Basic example</h4>
+<pre><code class="language-json">{
+  &quot;color&quot;: {
+    &quot;mapType&quot;: &quot;enum&quot;,
+    &quot;colorColumn&quot;: &quot;Description&quot;,
+    &quot;enumColors&quot;: [
+      {
+        &quot;value&quot;: &quot;Post Office&quot;,
+        &quot;color&quot;: &quot;#ff0000&quot;
+      },
+      {
+        &quot;value&quot;: &quot;Business Center&quot;,
+        &quot;color&quot;: &quot;#00ff00&quot;
+      }
+    ],
+    &quot;nullColor&quot;: &quot;#cccccc&quot;,
+    &quot;nullLabel&quot;: &quot;Unclassified&quot;
+  }
+}
+</code></pre>
+<h4 id="configuration-options_2">Configuration options</h4>
+<ul>
+<li><code>mapType</code>: set to <code>"enum"</code></li>
+<li><code>colorColumn</code>: Column containing categorical values</li>
+<li>Color Schemes:</li>
+<li><code>enumColors</code>: Array of value-color pairs</li>
+<li><code>colorPalette</code>: Color palette to use when defining default enum colors map. It is ignored when <code>enumColors</code> are specified.</li>
+<li>Null Handling:</li>
+<li><code>nullColor</code>: Color for missing values</li>
+<li><code>nullLabel</code>: Legend label for null values</li>
+</ul>
+<h4 id="color-palette">Color palette</h4>
+<p>Supported color palettes are <a href="http://colorbrewer2.org/">ColorBrewer</a> and <a href="https://github.com/d3/d3-scale-chromatic">d3-scale-chromatic</a></p>
+<h3 id="color-binning">Color binning</h3>
+<p>Color binning divides numeric data into discrete categories or "bins" and assigns specific colors to each bin. This makes it easy to identify patterns and distributions in the data, which is useful for creating choropleth maps or visualizing grouped numeric data.</p>
+<h4 id="use-cases">Use Cases</h4>
+<ul>
+<li>Population density maps</li>
+<li>Income level visualization</li>
+<li>Temperature zones</li>
+<li>Risk assessment maps</li>
+<li>Statistical groupings</li>
+</ul>
+<h4 id="configuration-options_3">Configuration Options</h4>
+<ul>
+<li><code>mapType</code>: set to <code>"enum"</code></li>
+<li><code>colorColumn</code>: Column containing categorical values</li>
+<li>Number of Bins: Set using numberOfBins</li>
+<li>Custom Ranges: Define exact breaks using binMaximums</li>
+<li>Color Schemes:</li>
+<li>Use built-in palettes with colorPalette</li>
+<li>Define custom colors with binColors</li>
+<li>Null Handling:</li>
+<li>nullColor: Color for missing values</li>
+<li>nullLabel: Legend label for null values</li>
+</ul>
+<h5 id="examples">Examples</h5>
+<p><strong>basic example</strong></p>
+<pre><code class="language-json">{
+  &quot;color&quot;: {
+    &quot;mapType&quot;: &quot;bin&quot;,
+    &quot;colorColumn&quot;: &quot;Delivery Point Id&quot;,
+    &quot;numberOfBins&quot;: 5,
+    &quot;colorPalette&quot;: &quot;Blues&quot;
+  }
+}
+</code></pre>
+<p><strong>Custom binning</strong></p>
+<pre><code class="language-json">{
+  &quot;color&quot;: {
+    &quot;mapType&quot;: &quot;bin&quot;,
+    &quot;colorColumn&quot;: &quot;income&quot;,
+    &quot;binMaximums&quot;: [30000, 50000, 75000, 100000, 150000],
+    &quot;binColors&quot;: [&quot;#fee5d9&quot;, &quot;#fcae91&quot;, &quot;#fb6a4a&quot;, &quot;#de2d26&quot;, &quot;#a50f15&quot;],
+    &quot;nullColor&quot;: &quot;#eeeeee&quot;,
+    &quot;nullLabel&quot;: &quot;No data available&quot;
+  }
+}
+</code></pre>
+<p><em>Note: If there are more colors than bins, any extra colors will be disregarded. If there are more bins than colors, the colors will be repeated.</em></p>
+<h4 id="color-palette_1">Color palette</h4>
+<p>Supported color palettes are <a href="http://colorbrewer2.org/">ColorBrewer</a> and <a href="https://github.com/d3/d3-scale-chromatic">d3-scale-chromatic</a></p>
+<h2 id="points">Points</h2>
+<p>Two style traits can be used to control the point styling:</p>
+<ul>
+<li><code>point</code> and</li>
+<li><code>pointSize</code>.</li>
+</ul>
+<h3 id="point-style">Point style</h3>
+<h4 id="default-point-style">Default point style</h4>
+<p>To specify the default point style that will be applied to all points, you can define a null trait style.</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;style-id&quot;,
+  &quot;point&quot;: {
+    &quot;null&quot;: {
+      &quot;marker&quot;: &quot;heart&quot;,
+      &quot;rotation&quot;: 0,
+      &quot;height&quot;: 20,
+      &quot;width&quot;: 20
+    }
+  }
+}
+</code></pre>
+<p>When the above style definition is applied to the point dataset, all points will be displayed as hearts on the map. The marker can be a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs">data URI</a> or one of the supported <a href="https://labs.mapbox.com/maki-icons/">Maki icons</a> (for example, "hospital").</p>
+<h4 id="enum-point-styling">Enum point styling</h4>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;style-id&quot;,
+  &quot;point&quot;: {
+    &quot;mapType&quot;: &quot;enum&quot;,
+    &quot;column&quot;: &quot;Description&quot;,
+    &quot;enum&quot;: [
+      {
+        &quot;marker&quot;: &quot;post&quot;,
+        &quot;rotation&quot;: 0,
+        &quot;height&quot;: 25,
+        &quot;width&quot;: 25,
+        &quot;value&quot;: &quot;Post Office&quot;
+      },
+      {
+        &quot;marker&quot;: &quot;telephone&quot;,
+        &quot;rotation&quot;: 0,
+        &quot;height&quot;: 30,
+        &quot;width&quot;: 30,
+        &quot;value&quot;: &quot;Community Postal Agency&quot;
+      },
+      {
+        &quot;marker&quot;: &quot;building&quot;,
+        &quot;rotation&quot;: 0,
+        &quot;height&quot;: 30,
+        &quot;width&quot;: 30,
+        &quot;value&quot;: &quot;Business Centre&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+<h4 id="bin-point-styling">Bin point styling</h4>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;style-id&quot;,
+  &quot;point&quot;: {
+    &quot;enabled&quot;: true,
+    &quot;mapType&quot;: &quot;bin&quot;,
+    &quot;column&quot;: &quot;Delivery Point Id&quot;,
+    &quot;bin&quot;: [
+      {
+        &quot;marker&quot;: &quot;building&quot;,
+        &quot;rotation&quot;: 0,
+        &quot;height&quot;: 16,
+        &quot;width&quot;: 16,
+        &quot;maxValue&quot;: 45000000
+      },
+      {
+        &quot;marker&quot;: &quot;building-alt1&quot;,
+        &quot;rotation&quot;: 0,
+        &quot;height&quot;: 16,
+        &quot;width&quot;: 16,
+        &quot;maxValue&quot;: 90000000
+      }
+    ]
+  },
+  &quot;hidden&quot;: false
+}
+</code></pre>
+<h3 id="point-size">Point size</h3>
+<p>To define the point size in terms of scalar data, you can use the <code>pointSize</code> trait. The size of a point in pixels will be calculated using the formula <code>Normalized Value * Size Factor + Size Offset</code>, where the <code>Normalized Value</code> is a value within the range of 0 to 1, with 0 representing the lowest value in the column and 1 representing the highest.</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;style-id&quot;,
+  &quot;pointSize&quot;: {
+    &quot;pointSizeColumn&quot;: &quot;population&quot;,
+    &quot;nullSize&quot;: 10,
+    &quot;sizeFactor&quot;: 14,
+    &quot;sizeOffset&quot;: 12
+  }
+}
+</code></pre>
+<h2 id="outline-styling">Outline styling</h2>
+<p>You can use the outline styling trait to specify the vector data outline and color. It supports default, bin, and enum styling as points. All options are the same just different color scheme is applied.</p>
+<h3 id="default-outline-style">Default outline style</h3>
+<p>To specify the default outline style you can use <code>outline.null</code> trait</p>
+<pre><code class="language-json">{
+  &quot;outline&quot;: {
+    &quot;null&quot;: {
+      &quot;width&quot;: 4,
+      &quot;color&quot;: &quot;#ff0000&quot;
+    }
+  }
+}
+</code></pre>
+<h3 id="enum-styling">Enum styling</h3>
+<p>To define exact styling based on property values it is possible to use enum color maps.</p>
+<pre><code class="language-json">&quot;outline&quot;: {
+  &quot;mapType&quot;: &quot;enum&quot;,
+  &quot;column&quot;: &quot;Description&quot;,
+  &quot;enum&quot;: [
+    { &quot;color&quot;: &quot;#ff0000&quot;, &quot;width&quot;: 4, &quot;value&quot;: &quot;Post Office&quot; },
+    {
+      &quot;color&quot;: &quot;#00ff00&quot;,
+      &quot;width&quot;: 4,
+      &quot;value&quot;: &quot;Community Postal Agency&quot;
+    },
+    {
+      &quot;color&quot;: &quot;#0000ff&quot;,
+      &quot;width&quot;: 4,
+      &quot;value&quot;: &quot;Business Centre&quot;
+    }
+  ],
+  &quot;null&quot;: { &quot;color&quot;: &quot;#ffffff&quot;, &quot;width&quot;: 4 }
+},
+</code></pre>
+<p>With the above styling, the post offices will have a red outline, postal agencies will have a green outline, and business centres will have a blue outline, while any outliers will have a white outline.</p>
+<h3 id="bin-styling">Bin styling</h3>
+<p>Most details regarding bin styling are the same as those in the coloring section of this guide.</p>
+<h4 id="basic-example_3">Basic example</h4>
+<pre><code class="language-json">{
+  &quot;outline&quot;: {
+    &quot;mapType&quot;: &quot;bin&quot;,
+    &quot;column&quot;: &quot;Delivery Point Id&quot;,
+    &quot;numberOfBins&quot;: 3,
+    &quot;bin&quot;: [
+      { &quot;color&quot;: &quot;#fee0d2&quot;, &quot;width&quot;: 1, &quot;maxValue&quot;: 30000000 },
+      { &quot;color&quot;: &quot;#fc9272&quot;, &quot;width&quot;: 2, &quot;maxValue&quot;: 60000000 },
+      { &quot;color&quot;: &quot;#de2d26&quot;, &quot;width&quot;: 3, &quot;maxValue&quot;: 90000000 }
+    ],
+    &quot;null&quot;: { &quot;color&quot;: &quot;#cccccc&quot;, &quot;width&quot;: 1 }
+  }
+}
+</code></pre>
+<h2 id="labels">Labels</h2>
+<p>To define the dataset labels, you can specify the <code>labels</code> trait. By default, labels are disabled: therfore, you will need to set <code>"enabled": true</code> for them to be displayed on the map. For example:</p>
+<pre><code class="language-json">&quot;label&quot;: {
+  &quot;enabled&quot;: true,
+  &quot;null&quot;: {
+    &quot;labelColumn&quot;: &quot;Name&quot;,
+    &quot;font&quot;: &quot;8px sans-serif&quot;,
+    &quot;style&quot;: &quot;fill&quot;
+  }
+}
+</code></pre>
+<p>To view a list of all available options check <a href="https://docs.terria.io/guide/connecting-to-data/catalog-type-details/geojson/#tablelabelstyletraits">LabelStyleTraits</a></p>
+<h2 id="legend">Legend</h2>
+<p>Terria will automatically generate the legend based on the parameters supplied in the style definition; however, if you are not satisfied with these, you can customise the details yourself. The available configuration options are:</p>
+<ul>
+<li><code>title</code>: Title displayed above the legend.</li>
+<li><code>url</code>: URL for the legend image.</li>
+<li><code>urlMimeType</code>: MIME type for the legend URL, enabling Terria to load and display the image correctly. This is necessary unless the URL ends with <code>png</code>, <code>jpg</code>, <code>jpeg</code>, <code>gif</code>, or <code>svg</code>.</li>
+<li><code>imageScaling</code>: Scaling of the legend image, which is useful for images with high DPI that require scaling down.</li>
+<li><code>backgroundColor</code>: A custom background for the legend that can be defined when the legend is transparent and clashes with Terria's UI styles.</li>
+<li><code>items</code>: Custom list of legend items. For all available options, check <a href="https://docs.terria.io/guide/connecting-to-data/catalog-type-details/geojson/#legenditemtraits">LegendItemTraits</a>.</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre><code class="language-json">{
+  &quot;legend&quot;: {
+    &quot;title&quot;: &quot;Custom Legend&quot;,
+    &quot;items&quot;: [
+      {
+        &quot;color&quot;: &quot;#ff0000&quot;,
+        &quot;title&quot;: &quot;High Value&quot;
+      },
+      {
+        &quot;color&quot;: &quot;#00ff00&quot;,
+        &quot;title&quot;: &quot;Low Value&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+<h2 id="manipulating-time">Manipulating time</h2>
+<h3 id="timecolumn">timeColumn</h3>
+<p>You can set which column controls the time slider by setting <code>timeColumn</code>:</p>
+<pre><code class="language-json">&quot;time&quot;: {
+  &quot;timeColumn&quot;: &quot;name-of-column&quot;
+}
+</code></pre>
+<p>Use <code>"timeColumn": null</code> to remove the time slider altogether for this dataset.</p>
+<h3 id="endtimecolumn">endTimeColumn</h3>
+<p>If you have data that show feature existence over a time interval, you can specify the <code>endTimeColumn</code>.</p>
+<pre><code class="language-json">&quot;time&quot;: {
+  &quot;timeColumn&quot;: &quot;name-of-column&quot;,
+  &quot;endTimeColumn&quot;: &quot;name-of-end-column&quot;
+}
+</code></pre>
+<h3 id="idcolumns">idColumns</h3>
+<p>If you have data that shows particular features over time, you can have a time-series plot of the selected column values to appear in the feature info panel when you click on a feature, provided you inform TerriaJS how to track individual features over time.</p>
+<p>If your table includes a time column alongside a column named <code>id</code>, this will happen automatically.</p>
+<p>Otherwise, you can specify which column or columns to use for the feature IDs by setting <code>idColumns</code>. This should be an array of column names, for example:</p>
+<pre><code class="language-json">  &quot;idColumns&quot;: [&quot;feature name&quot;],
+</code></pre>
+<p>If your features have fixed latitude and longitude positions, you could use:</p>
+<pre><code class="language-json">  &quot;idColumns&quot;: [&quot;lat&quot;, &quot;lon&quot;],
+</code></pre>
+<h2 id="trail-styling">Trail Styling</h2>
+<p>Trails illustrate the trajectory of moving features over time.</p>
+<h3 id="example_1">Example</h3>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;csv&quot;,
+  &quot;url&quot;: &quot;test/incidents.csv&quot;,
+  &quot;activeStyle&quot;: &quot;incident_duration&quot;,
+  &quot;defaultStyle&quot;: {
+    &quot;color&quot;: {
+      &quot;binColors&quot;: [
+        &quot;rgba(0,0,200,1.0)&quot;,
+        &quot;rgba(200,200,200,1.00)&quot;,
+        &quot;rgba(200,0,0,1.00)&quot;
+      ],
+      &quot;numberOfBins&quot;: 3
+    }
+  },
+  &quot;multiplier&quot;: 64006.5306122449,
+  &quot;isPaused&quot;: false,
+  &quot;styles&quot;: [
+    {
+      &quot;id&quot;: &quot;incident_duration&quot;,
+      &quot;trail&quot;: {
+        &quot;enabled&quot;: true,
+        &quot;mapType&quot;: &quot;bin&quot;,
+        &quot;column&quot;: &quot;incident_severity&quot;,
+        &quot;materialType&quot;: &quot;polylineGlow&quot;,
+        &quot;bin&quot;: [
+          {
+            &quot;polylineGlow&quot;: {
+              &quot;color&quot;: &quot;rgba(17,31,233,1)&quot;
+            },
+            &quot;trailTime&quot;: 100000,
+            &quot;resolution&quot;: 60000,
+            &quot;maxValue&quot;: 3
+          },
+          {
+            &quot;polylineGlow&quot;: {
+              &quot;color&quot;: &quot;rgba(237,14,14,1)&quot;
+            },
+            &quot;leadTime&quot;: 0,
+            &quot;trailTime&quot;: 100000,
+            &quot;width&quot;: 30,
+            &quot;resolution&quot;: 60000,
+            &quot;maxValue&quot;: 4
+          }
+        ]
+      },
+      &quot;hidden&quot;: false
+    }
+  ]
+}
+</code></pre>
+<h3 id="configuration-options_4">Configuration Options</h3>
+<ul>
+<li><code>enabled</code>: Enable or disable trails (default: false)</li>
+<li><code>materialType</code>: "solidColor" or "polylineGlow"</li>
+<li>Time settings:</li>
+<li><code>trailTime</code>: Seconds to display behind the object (default: 10)</li>
+<li><code>leadTime</code>: Seconds to display ahead of the object (default: 0)</li>
+<li><code>resolution</code>: Maximum seconds between samples (default: 60)</li>
+<li>Style:</li>
+<li><code>width</code>: Line width in pixels</li>
+<li>Color options based on materialType</li>
+</ul>
+<h2 id="related-resources">Related Resources</h2>
+<ul>
+<li><a href="https://docs.terria.io/guide/connecting-to-data/catalog-type-details/geojson/#tablestyletraits">TerriaJS Style Traits Documentation</a></li>
+<li><a href="https://labs.mapbox.com/maki-icons/">Maki Icons Reference</a></li>
+<li><a href="http://colorbrewer2.org/">ColorBrewer Schemes</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../../js/rewrite-links.js"></script>
+      
+    
+  </body>
+</html>

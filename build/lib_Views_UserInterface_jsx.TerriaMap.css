@@ -1,0 +1,146 @@
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/terriajs-typings-for-css-modules-loader/src/index.js!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[12].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[12].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[12].use[4]!./packages/terriajs/lib/ReactViews/RelatedMaps/related-maps.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css?family=Inter:300,400,500,400italic,600,700&display=swap);
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/terriajs-typings-for-css-modules-loader/src/index.js!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[12].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[12].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[12].use[4]!./packages/terriajs/lib/ReactViews/StandardUserInterface/customizable/menu-button.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css?family=Inter:300,400,500,400italic,600,700&display=swap);
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/terriajs-typings-for-css-modules-loader/src/index.js!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[12].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[12].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[12].use[4]!./packages/terriajs/lib/ReactViews/RelatedMaps/related-maps.scss (1) ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Wrapper around TerriaJS variables allowing us to easy override them from TerriaMap. 
+ * For the default values of variables check ./_default_variables.scss
+ */
+/**
+ * Default variables for TerriaJS styles.
+ *
+ * These variables are default theme values used throughout TerriaJS.
+ * All variables use the !default flag to allow for overriding.
+ *
+ * USING VARIABLES:
+ * These variables are made available to the rest of codebase as webpack `terriajs-variables`
+ * alias, and can be used by importing the ./_variables.scss file (i.e. `@use "../Sass/common/_variables";`)
+ *
+ * OVERRIDING VARIABLES:
+ * To override variables values in your application:
+ * 1. Create a custom variables file in your app
+ * 2. Configure the `terriajs-variables` webpack alias to point to your custom variables file
+ * 3. In your custom variables file, override specific variables values using the `@use ... with` syntax
+ *
+ * For a complete example, see the `variables.scss` file in the TerriaMap repository.
+ */
+/**
+// To customise the look of your map, uncomment and change values here (remove line above after uncommenting) and in lib/Views/global.scss
+
+@forward "~terriajs/lib/Sass/common/_default_variables.scss" with ( 
+    // If your logo is big, set this to give it more room.
+    //$logo-height: 120px;
+
+    // If using a non-standard font, remember to include an @import statement in global.scss
+    $font-base: 'Josefin Sans', sans-serif;
+    $font-pop: $font-base; // If you just want to use one font throughout, do this.
+
+    // These variables are for buttons and text.
+    // "color-secondary" should be a lighter color than "color-primary" but still readable contrasted with white.
+    $color-primary: maroon;
+    $color-secondary: hsl(60,80%,60%); // or: lighten($color-primary, 20%);
+
+    // These variables set background panel colors
+    $dark: hsl(0,30%,30%);
+    $dark-with-overlay: hsl(0,30%,30%);;
+    $dark-lighter: hsl(0,30%,50%);
+
+    // You might find it helpful to define these and use them.
+    $color-primary-light:lighten($color-primary,10%);
+    $color-primary-dark:darken($color-primary,10%);
+    $dark-darker: hsl(0,30%,15%);
+);
+*/
+.tjs-related-maps__dropdown-inner {
+  padding: 10px;
+  font-size: 0.9rem;
+  width: 600px;
+}
+@media (max-width: 767px) {
+  .tjs-related-maps__dropdown-inner {
+    max-width: fit-content;
+  }
+}
+
+.tjs-related-maps__image {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 200px;
+  height: 150px;
+}
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/terriajs-typings-for-css-modules-loader/src/index.js!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[12].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[12].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[12].use[4]!./packages/terriajs/lib/ReactViews/StandardUserInterface/customizable/menu-button.scss (1) ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Wrapper around TerriaJS variables allowing us to easy override them from TerriaMap. 
+ * For the default values of variables check ./_default_variables.scss
+ */
+/**
+ * Default variables for TerriaJS styles.
+ *
+ * These variables are default theme values used throughout TerriaJS.
+ * All variables use the !default flag to allow for overriding.
+ *
+ * USING VARIABLES:
+ * These variables are made available to the rest of codebase as webpack `terriajs-variables`
+ * alias, and can be used by importing the ./_variables.scss file (i.e. `@use "../Sass/common/_variables";`)
+ *
+ * OVERRIDING VARIABLES:
+ * To override variables values in your application:
+ * 1. Create a custom variables file in your app
+ * 2. Configure the `terriajs-variables` webpack alias to point to your custom variables file
+ * 3. In your custom variables file, override specific variables values using the `@use ... with` syntax
+ *
+ * For a complete example, see the `variables.scss` file in the TerriaMap repository.
+ */
+/**
+// To customise the look of your map, uncomment and change values here (remove line above after uncommenting) and in lib/Views/global.scss
+
+@forward "~terriajs/lib/Sass/common/_default_variables.scss" with ( 
+    // If your logo is big, set this to give it more room.
+    //$logo-height: 120px;
+
+    // If using a non-standard font, remember to include an @import statement in global.scss
+    $font-base: 'Josefin Sans', sans-serif;
+    $font-pop: $font-base; // If you just want to use one font throughout, do this.
+
+    // These variables are for buttons and text.
+    // "color-secondary" should be a lighter color than "color-primary" but still readable contrasted with white.
+    $color-primary: maroon;
+    $color-secondary: hsl(60,80%,60%); // or: lighten($color-primary, 20%);
+
+    // These variables set background panel colors
+    $dark: hsl(0,30%,30%);
+    $dark-with-overlay: hsl(0,30%,30%);;
+    $dark-lighter: hsl(0,30%,50%);
+
+    // You might find it helpful to define these and use them.
+    $color-primary-light:lighten($color-primary,10%);
+    $color-primary-dark:darken($color-primary,10%);
+    $dark-darker: hsl(0,30%,15%);
+);
+*/
+.tjs-menu-button__btn--about-link {
+  border-radius: 2px;
+  border: 0;
+}
+.tjs-menu-button__btn--about-link svg {
+  vertical-align: middle;
+}
+.tjs-menu-button__btn--about-link span {
+  line-height: 1.5;
+}
+.tjs-menu-button__btn--about-link:hover, .tjs-menu-button__btn--about-link:focus {
+  border: 0;
+}
+.tjs-menu-button__btn--about-link:hover svg, .tjs-menu-button__btn--about-link:focus svg {
+  fill: #ffffff;
+}

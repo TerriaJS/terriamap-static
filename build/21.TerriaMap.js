@@ -1,1 +1,0 @@
-((self||window).webpackJsonp=(self||window).webpackJsonp||[]).push([[21],{3697:function(e,n,r){"use strict";r.r(n),r.d(n,"default",(function(){return c}));var s=r(2424),t=r(459);class c extends t.a{decodeBlock(e){return Object(s.a)(new Uint8Array(e)).buffer}}}}]);

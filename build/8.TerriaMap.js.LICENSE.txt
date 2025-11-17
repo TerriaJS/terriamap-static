@@ -1,1 +1,0 @@
-/*! @petamoriken/float16 v3.8.7 | MIT License - https://github.com/petamoriken/float16 */

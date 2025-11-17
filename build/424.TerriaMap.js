@@ -1,1 +1,0 @@
-"use strict";((self||window).webpackChunkterriajs_map=(self||window).webpackChunkterriajs_map||[]).push([[424],{50424:(e,r,a)=>{a.d(r,{default:()=>t});var s=a(3075),n=a(42132);class t extends n.A{decodeBlock(e){return(0,s.UD)(new Uint8Array(e)).buffer}}}}]);
