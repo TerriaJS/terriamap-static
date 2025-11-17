@@ -9,3 +9,9 @@ npx serve -p 3001
 ```
 
 Then go to [http://localhost:3001](http://localhost:3001) to view the map.
+
+## Edit configuration and catalog
+
+Edit [`config.json`](./config.json) to change the configuration of the map.
+
+Edit [`catalog.json`](./catalog.json) to change the catalog of the map.
