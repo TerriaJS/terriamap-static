@@ -35,7 +35,7 @@
       ]
     }
   ],
-  "viewerMode": "3dSmooth",
+  "viewerMode": "3d",
   "baseMaps": {
     "previewBaseMapId": "basemap-bing-aerial"
   }
