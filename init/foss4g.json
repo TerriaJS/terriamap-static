@@ -31,13 +31,6 @@
           "ionAssetId": 96188,
           "name": "Cesium OSM Buildings",
           "id": "osm-buildings"
-        },
-        {
-          "type": "3d-tiles",
-          "ionAssetId": 4113697,
-          "ionAccessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhYTQ0MTViOS00NGM5LTQwZDctODUxOS0zMDYzMWExMGYzZjkiLCJpZCI6NTk1NzksImlhdCI6MTc2MzM1NjUwNH0.O8CKvEUSgSpwpjGBtY_ps2oKg-pz-hw0w0OHPWUNP7o",
-          "name": "Auckland City campus with Skytower",
-          "id": "auckland-city-campus"
         }
       ]
     }
